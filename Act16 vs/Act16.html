@@ -1,0 +1,168 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="Utf-8"/>
+	<title>Actividad 16</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	
+</head>
+<body onload="Instrucciones();">
+
+<!-- Page Content -->
+        <div id="page-wrapper"> 
+            <div class="container-fluid">
+                <h2>Actividad 16</h2>
+
+                <!--PANEL PARA UN NIVEL 1 DE UNA ACTIVIDAD 3-->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Relaciones Espaciales</div>
+                            <div class="panel panel-body">
+                                <!--tabla de controles para el nivel -->
+                                <center> 
+                                    <table class="table-condensed">
+                                        <tr>
+                                            <td> <button id="comienzo" class="btn btn-success" onclick="iniciarEjercicio();">Iniciar</button></td>
+                                            <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
+                                            <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
+                                        </tr>
+                                    </table> 
+									<div center>
+									<div style="float:left;">
+										<table width="46%">
+											<tr>
+												<td><div id="div1" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen1"></div></td>
+												<td><div id="div2" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen2"></div></td>
+												<td><div id="div3" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen3"></div></td>
+												<td><div id="div4" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen4"></div></td>
+											</tr>
+											<tr>
+												<td><div id="div5" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen5"></div></td>
+												<td><div id="div6" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen6"></div></td>
+												<td><div id="div7" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen7"></div></td>
+												<td><div id="div8" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen8"></div></td>
+											</tr>
+											<tr>	
+												<td><div id="div9" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen9"></div></td>
+												<td><div id="div10" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen10"></div></td>
+												<td><div id="div11" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen11"></div></td>
+												<td><div id="div12" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen12"></div></td>
+											</tr>
+											<tr>	
+												<td><div id="div13" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen13"></div></td>
+												<td><div id="div14" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen14"></div></td>
+												<td><div id="div15" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen15"></div></td>
+												<td><div id="div16" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen16"></div></td>
+											</tr>
+											<tr>	
+												<td><div id="div17" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen17"></div></td>
+												<td><div id="div18" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen18"></div></td>
+												<td><div id="div19" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen19"></div></td>
+												<td><div id="div20" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen20"></div></td>
+											</tr>
+											<tr>	
+												<td><div id="div21" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen21"></div></td>
+												<td><div id="div22" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen22"></div></td>
+												<td><div id="div23" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen23"></div></td>
+												<td><div id="div24" style="visibility:hidden" height = "100px";><img src="" height="100px" id="imagen24"></div></td>
+											</tr>
+										</table>
+									</div>
+									<div style="width: 15px; height:600px; float: left; background-color: rgba(0, 71, 186, 0.8);">
+										&nbsp;
+									</div>
+									<div style="float: left;">
+										<table width="46%">
+											<tr>
+												<td><div id="div1a" style="visibility:hidden" onclick="validarResultados(1);" height = "100px";><img src="" height="100px" id="imagen1a"></div></td>
+												<td><div id="div2a" style="visibility:hidden" onclick="validarResultados(2);" height = "100px";><img src="" height="100px" id="imagen2a"></div></td>
+												<td><div id="div3a" style="visibility:hidden" onclick="validarResultados(3);" height = "100px";><img src="" height="100px" id="imagen3a"></div></td>
+												<td><div id="div4a" style="visibility:hidden" onclick="validarResultados(4);" height = "100px";><img src="" height="100px" id="imagen4a"></div></td>
+											</tr>
+											<tr>	
+												<td><div id="div5a" style="visibility:hidden" onclick="validarResultados(5);" height = "100px";><img src="" height="100px" id="imagen5a"></div></td>
+												<td><div id="div6a" style="visibility:hidden" onclick="validarResultados(6);" height = "100px";><img src="" height="100px" id="imagen6a"></div></td>
+												<td><div id="div7a" style="visibility:hidden" onclick="validarResultados(7);" height = "100px";><img src="" height="100px" id="imagen7a"></div></td>
+												<td><div id="div8a" style="visibility:hidden" onclick="validarResultados(8);" height = "100px";><img src="" height="100px" id="imagen8a"></div></td>
+											</tr>
+											<tr>
+												<td><div id="div9a" style="visibility:hidden" onclick="validarResultados(9);" height = "100px";><img src="" height="100px" id="imagen9a"></div></td>
+												<td><div id="div10a" style="visibility:hidden" onclick="validarResultados(10);" height = "100px";><img src="" height="100px" id="imagen10a"></div></td>
+												<td><div id="div11a" style="visibility:hidden" onclick="validarResultados(11);" height = "100px";><img src="" height="100px" id="imagen11a"></div></td>
+												<td><div id="div12a" style="visibility:hidden" onclick="validarResultados(12);" height = "100px";><img src="" height="100px" id="imagen12a"></div></td>
+											</tr>
+											<tr>
+												<td><div id="div13a" style="visibility:hidden" onclick="validarResultados(13);" height = "100px";><img src="" height="100px" id="imagen13a"></div></td>
+												<td><div id="div14a" style="visibility:hidden" onclick="validarResultados(14);" height = "100px";><img src="" height="100px" id="imagen14a"></div></td>
+												<td><div id="div15a" style="visibility:hidden" onclick="validarResultados(15);" height = "100px";><img src="" height="100px" id="imagen15a"></div></td>
+												<td><div id="div16a" style="visibility:hidden" onclick="validarResultados(16);" height = "100px";><img src="" height="100px" id="imagen16a"></div></td>
+											</tr>
+											<tr>
+												<td><div id="div17a" style="visibility:hidden" onclick="validarResultados(17);" height = "100px";><img src="" height="100px" id="imagen17a"></div></td>
+												<td><div id="div18a" style="visibility:hidden" onclick="validarResultados(18);" height = "100px";><img src="" height="100px" id="imagen18a"></div></td>
+												<td><div id="div19a" style="visibility:hidden" onclick="validarResultados(19);" height = "100px";><img src="" height="100px" id="imagen19a"></div></td>
+												<td><div id="div20a" style="visibility:hidden" onclick="validarResultados(20);" height = "100px";><img src="" height="100px" id="imagen20a"></div></td>
+											</tr>
+											<tr>
+												<td><div id="div21a" style="visibility:hidden" onclick="validarResultados(21);" height = "100px";><img src="" height="100px" id="imagen21a"></div></td>
+												<td><div id="div22a" style="visibility:hidden" onclick="validarResultados(22);" height = "100px";><img src="" height="100px" id="imagen22a"></div></td>
+												<td><div id="div23a" style="visibility:hidden" onclick="validarResultados(23);" height = "100px";><img src="" height="100px" id="imagen23a"></div></td>
+												<td><div id="div24a" style="visibility:hidden" onclick="validarResultados(24);" height = "100px";><img src="" height="100px" id="imagen24a"></div></td>
+											</tr>
+										</table>
+                                    </div>
+									</div>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <!--PANEL PARA LAS INSTRUCCIONES-->
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+							<div class="panel-heading">Fases</div>
+                            <div class="panel panel-body">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="fases" onclick="setFase(1);" value="1" id="fase1" checked/>
+										Fase 1: Aparecerán círculos que se iluminarán, el niño deberá escoger el mismo círculo.
+                                    </label>
+									<br>
+                                    <label>
+                                        <input type="radio" name="fases" onclick="setFase(2);" value="2" id="fase2"/>
+                                        Fase 2: Aparecerán círculos que estarán unidos, los cuáles se prenderán en el orden y los círculos que deben unirse.
+                                    </label>
+									<br>
+                                    <label>
+                                        <input type="radio" name="fases" onclick="setFase(3);" value="3" id="fase3"/>
+                                        Fase 3: Aparecerán círculos que estarán unidos, el niño deberá unir los mismos círculos en otra matriz. El primer círculo es de color AZUL.
+                                    </label>
+                                </div>
+                            </div>
+							<br>
+                            <div class="panel-heading">Niveles</div>
+                            <div class="panel panel-body">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(1);" value="1" id="nivel1" checked/>
+                                        Nivel 1: Matriz de dos círculos.
+                                    </label>
+									<br>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(2);" value="2" id="nivel2"/>
+                                        Nivel 2: Matriz de nueve círculos.
+                                    </label>
+									<br>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(3);" value="3" id="nivel3"/>
+                                        Nivel 3: Matriz de veinticuatro círculos.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+</body>
+<script type="text/javascript" src="scriptAct16.js"></script>
+</html>
