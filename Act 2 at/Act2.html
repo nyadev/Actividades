@@ -1,0 +1,142 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="Utf-8"/>
+	<title>Actividad 2</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+<body onload="instructions();">
+
+
+<!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <h2>Actividad 2</h2>
+
+                <!--PANEL PARA LA ACTIVIDAD 2-->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Nivel: <span id="level">1</span> </div>
+                            <div class="panel panel-body">
+                                <!--tabla de controles para el nivel -->
+                                <center> 
+                                    <table class="table-condensed">
+                                        <tr>
+                                            <td> <button id="begin" class="btn btn-success" 
+                                                        onclick="begin();
+                                                         ">Iniciar</button></td>
+
+                                            <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
+                                            <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
+                                            <td>Clave: <img src="" id="0" name="figure" class="estimulo"></td>
+                                        </tr>
+                                    </table>
+                                    <table>
+                                        <tr>
+                                            <td><a><img src="" id="1" class="estimulo" onclick="validate(id,src)"></a></td>
+                                            <td><img src="" id="2" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="3" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="4" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="5" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="6" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="7" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="8" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                        </tr>
+                                        <!---->
+                                        <tr>
+                                            <td><img src="" id="9" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="10" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="11" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="12" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="13" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="14" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="15" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="16" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                        </tr>
+                                        <!---->
+                                        <tr>
+                                            <td><img src="" id="17" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="18" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="19" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="20" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="21" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="22" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="23" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="24" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                        </tr>
+                                        <!---->
+                                        <tr>
+                                            <td><img src="" id="25" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="26" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="27" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="28" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="29" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="30" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="31" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="32" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                        </tr>
+                                        <!---->
+                                        <tr>
+                                            <td><img src="" id="33" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="34" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="35" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="36" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="37" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="38" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="39" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                            <td><img src="" id="40" name="figure" class="estimulo" onclick="validate(id,src)"></td>
+                                        </tr>
+                                    </table>
+                                    <input id="save-results" class="btn boton" type="button" value="Guardar resultados" onclick="saveResults()"> 
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <!--PANEL PARA LAS INSTRUCCIONES-->
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Instrucciones generales</div>
+                            <div class="panel panel-body">
+                                <div class="radio">
+                                    <br><label>
+                                        <input type="radio" name="nivel" onclick="setLevel(1);" value="1" checked/>
+                                        Nivel 1:  Los estímulos irán apareciendo uno por uno de derecha a izquierda y de arriba abajo, el estímulo clave se encontrará de color rojo.
+                                    </label>
+                                    <br><label>
+                                        <input type="radio" name="nivel" onclick="setLevel(2);" value="2"/>
+                                        Nivel 2: Los estímulos irán apareciendo uno por uno de derecha a izquierda y de arriba abajo, el estímulo aparecerá del mismo color (Negro)
+
+                                    </label>
+                                    <br><label>
+                                        <input type="radio" name="nivel" onclick="setLevel(3);" value="3"/>
+                                        Nivel 3: Los estímulos aparecerán al mismo tiempo como la muestra de abajo pero el estímulo clave será Rojo
+
+                                    </label>
+                                    <br><label>
+                                        <input type="radio" name="nivel" onclick="setLevel(4);"  value="4"/>
+                                        Nivel 4: Los estímulos aparecerán al mismo tiempo como la muestra de abajo pero el estímulo clave será del mismo color y el niño tendrá 2 minutos para realizar la actividad.
+                                    </label>
+                                    <br><label>
+                                        <input type="radio" name="nivel" onclick="setLevel(5);" value="5"/>
+                                        Nivel 5: Los estímulos aparecerán al mismo tiempo como la muestra de abajo pero el estímulo clave será del mismo color y tendrá solo un minuto para encontrar todos.
+                                    </label>
+                                    
+
+                                </div>
+
+                            </div>
+
+                        </div>      
+                    </div>
+                </div>
+                <!--TERMINA EL PANEL PARA NIVEL 1-->
+</div>
+</div>
+
+</body>
+<script type="text/javascript" src="scriptAct2.js"></script>
+</html>
