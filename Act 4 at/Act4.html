@@ -1,0 +1,104 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="Utf-8"/>
+	<title>Activiad 4</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body onload="instrucciones();">
+
+<!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <h2>Actividad 4</h2>
+
+                <!--PANEL PARA UN NIVEL 1 DE UNA ACTIVIDAD 3-->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Actividad 4</div>
+                            <div class="panel panel-body">
+                                <!--tabla de controles para el nivel -->
+                                <center> 
+                                    <table class="table-condensed">
+                                        <tr>
+                                            <td> <button class="btn btn-success" onclick="iniciarEjercicio();">Iniciar</button></td>
+
+                                            <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
+                                            <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
+
+                                        </tr>
+                                    </table>    
+
+                                    <div id="opcionesBox" style="position: absolute; left: 45%; background:white; visibility:hidden;">
+                                        <canvas id="canvasOpcion" width="200" height="200" style=" border: 0px solid #000000"></canvas>
+                                        <br><button class="btn btn-default" name="btn1" onclick="validarIguales()">Igual</button>
+                                        <button class="btn btn-default" name="btn2" onclick="validarDiferentes()">Diferente</button>
+                                    </div> 
+
+                                    <div id="estimuloBox" style="position: relative; background: white; visibility:visible;">            
+                                        <canvas id="canvasEstimulo" width="200" height="250" style=" border: 0px solid #000000"></canvas>
+                                    </div>
+                                    <div id="resultadosBox" style="position:absolute; left:350px; top:140px;  background: white; visibility: hidden;">
+                                        <table class="table-condensed">             
+                                            <tr>
+
+                                                <td>
+                                                    <button class="btn btn-default" onclick="pasarVariables('RegistraResultados', 'curp,aciertos,errores,nivel,actividad')">Guardar resultados</button>
+                                                    
+                                                </td>
+                                            </tr>
+                                        </table> 
+                                    </div>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <!--PANEL PARA LAS INSTRUCCIONES-->
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Instrucciones generales</div>
+                            <div class="panel panel-body">
+                                <!--Aquí el texto de las instrucciones
+                                Aparecerá un estímulo en el centro de un color determinado (Rojo, Azul
+                                o Verde) y forma determinado (Cuadrado, Círculo, Triángulo), en la
+                                siguiente pantalla aparecerá una nueva figura de igual o diferente color
+                                y/o forma, el paciente deberá dar click en la  en caso de ser el mismo o
+                                 en caso de ser diferente. El estímulo cambiará hasta que el paciente
+                                haya dado una respuesta.--> 
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(1);" value="1" checked/>
+                                        Nivel 1: El estímulo durará 5 segundos, y toda la tarea 60 segundos.
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(2);" value="2"/>
+                                        Nivel 2: El estímulo durará 5 segundos, y toda la tarea 120 segundos
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(3);" value="3"/>
+                                        Nivel 3:  El estímulo durará 3 segundos, y toda la tarea 180 segundos
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(4);"  value="4"/>
+                                        Nivel 4:  El estímulo durará 2 segundos, y toda la tarea 240 segundos.
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(5);" value="5"/>
+                                        Nivel 5:  El estímulo durará 1 segundos, y toda la tarea 300 segundos.
+                                    </label
+                                </div>
+
+                            </div>
+
+                        </div>      
+                    </div>
+                </div>
+                <!--TERMINA EL PANEL PARA NIVEL 1-->
+
+
+
+</body>
+<script type="text/javascript" src="scriptAct4.js"></script>
+</html>
