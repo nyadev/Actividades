@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="Utf-8"/>
+	<title>Activiad 3</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body onload="instrucciones();">
+	<div>
+	</div>
+	 <div class="col-lg-8"  style=" height: 80%;" >
+	<div class="panel panel-primary">
+
+	  <div class="panel-heading">Actividad 3</div>
+	  <div class="panel-body" style=" ">
+
+	<table class="table-condensed">
+											<tr>
+												<td> <button class="btn btn-success" onclick="iniciarEjercicio()">Iniciar</button></td>
+												<td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
+												<td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
+											</tr>
+										</table>
+
+	  <!--Dibujamos el lienzo con el cuadro dentro del canvas-->
+
+	  <div><!--Div que contiene todos los elementos-->
+		<div id="resultadosBox" style="position: absolute; background: white; visibility: hidden;">
+			<br><button onclick="enviarParametros()">Guardar resultados</button>
+		</div>
+		<div id="opcionesBox" style="position: absolute; background: white visibility:hidden;">
+		<table>
+		<tr>
+			<td><div><canvas id="canvas2" width="50" height="50" onclick="validarRespuesta(0)" style=" border: 2px solid #000000"></canvas></div></td>
+			<td><div><canvas id="canvas3" width="50" height="50" onclick="validarRespuesta(1)" style=" border: 2px solid #000000"></canvas></div></td>
+			<td><div><canvas id="canvas4" width="50" height="50" onclick="validarRespuesta(2)" style=" border: 2px solid #000000"></canvas></div></td>
+		</tr>
+		<tr>
+			<td><canvas id="canvas5" width="50" height="50" onclick="validarRespuesta(3)" style=" border: 2px solid #000000"></canvas></td>
+			<td><canvas id="canvas6" width="50" height="50" onclick="validarRespuesta(4)" style=" border: 2px solid #000000"></canvas></td>
+			<td><canvas id="canvas7" width="50" height="50" onclick="validarRespuesta(5)" style=" border: 2px solid #000000"></canvas></td>
+		</tr>
+		</table>
+		</div> 
+
+		<div id="estimuloBox" style="position: relative; background: white; visibility:visible;">
+		<canvas id="canvas1" width="150" height="150" style=" border: 0px solid #000000"></canvas>
+		</div>
+		</div><!--Div que contiene todos los elementos-->  
+
+	  </div>
+	</div>
+	</div>
+		<div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Niveles</div>
+                <div class="panel panel-body">
+                                <!--Aquí el texto de las instrucciones
+                                Aparecerá un estímulo en el centro de un color determinado, después en otra pantalla el niño deberá escoger el círculo que corresponde con el color mostrado.--> 
+					<div class="radio">
+                        <label>
+							<input type="radio" name="niveles" onclick="setNivel(1);" value="1" checked/>
+                            Nivel 1: El estímulo durará 5 segundos, y toda la tarea 60 segundos.
+                        </label>
+                        <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(2);" value="2"/>
+                                        Nivel 2: El estímulo durará 5 segundos, y toda la tarea 120 segundos
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(3);" value="3"/>
+                                        Nivel 3:  El estímulo durará 3 segundos, y toda la tarea 180 segundos
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(4);"  value="4"/>
+                                        Nivel 4:  El estímulo durará 2 segundos, y toda la tarea 240 segundos.
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(5);" value="5"/>
+                                        Nivel 5:  El estímulo durará 1 segundos, y toda la tarea 300 segundos.
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>      
+                    </div>
+                </div>
+
+</body>
+<script type="text/javascript" src="scriptAct3.js"></script>
+</html>
