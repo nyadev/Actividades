@@ -4,6 +4,7 @@ var aciertos = 0;
 var errores = 0;
 var nivel = 1;
 var fase = 1;
+var noClick = 0;
 var actividad = 9;//numero de la actividad
 
 //Variables de la actividad
@@ -74,16 +75,15 @@ function mostrarNumero(unLimite){
 
     }
 }
-
-var noClick = -1;
 function validarRespuesta(opcion){
-    noClick++;
+    
     if(listaNumeros[noClick] === opcion){
         aciertos++;
         console.log("En lista:" + listaNumeros[noClick] + " mi opcion:" + opcion  + "Numero de aciertos:" + aciertos);
        document.getElementById("pista1").currentTime = 0;
         document.getElementById("pista1").play();
         document.getElementById("aciertos").innerHTML = aciertos;
+		noClick++;
     }
     else{
         errores++;
@@ -143,7 +143,7 @@ function iniciarEjercicio(){
     idElemento = 0;
 	aciertos = 0;
 	errores = 0;
-    noClick = -1;
+    noClick = 0;
 
     for(var i = 0; i < 9; i++){
     document.getElementById(listaNumeros[i]).style.background = "white";    
