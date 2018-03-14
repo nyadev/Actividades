@@ -11,6 +11,9 @@ var actividad = 9;//numero de la actividad
 var listaCuadros = [document.getElementById("E0"), document.getElementById("E2"), document.getElementById("E5"), document.getElementById("E7"), 
 					document.getElementById("E9"), document.getElementById("E14"), document.getElementById("E18"), document.getElementById("E21"),
 					document.getElementById("E23")];
+var listaCuadros2 = [document.getElementById("E30"), document.getElementById("E32"), document.getElementById("E35"), document.getElementById("E37"), 
+					document.getElementById("E39"), document.getElementById("E44"), document.getElementById("E48"), document.getElementById("E51"),
+					document.getElementById("E53")];
 var listaNumeros = new Array('E0','E2','E5','E7','E9','E14','E18','E21','E23');
 var idElemento = 0;
 var numMaximo = 2;//Es la cantidad de numeros que apareceran, por defaul se establecen 2, posteriormente este numero se modifica de acuerdo al nivel
@@ -32,11 +35,13 @@ function evaluarFase(){
 	if (fase === 1){
 		for(i = 0; i < listaCuadros.length; i++){
 			listaCuadros[i].innerHTML = i;
+			listaCuadros2[i].innerHTML = i;
 		}
 	}
 	if(fase === 2){
 		for(i = 0; i < listaCuadros.length; i++){
 			listaCuadros[i].innerHTML = "";
+			listaCuadros2[i].innerHTML = "";
 		}
 	}
 } 
