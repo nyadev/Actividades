@@ -1,0 +1,123 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="Utf-8"/>
+		<title>Actividad 11</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<style>
+		#tabla{
+			margin-right: 500px;   
+			
+		}
+		</style>
+	</head>
+	<body onload="instrucciones();">
+	<!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <h2>Actividad 11</h2>
+                <!--PANEL PARA UN NIVEL 1 DE UNA ACTIVIDAD 3-->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="panel panel-primary">
+                           <div class="panel-heading">Cierre visual II</div>
+                            <div class="panel panel-body">
+                                <!--tabla de controles para el nivel -->
+                                <center> 
+                                    <table class="table-condensed">
+                                        <tr>
+                                            <td> <button class="btn btn-success" onclick="iniciarEjercicio();">Iniciar</button></td>
+                                            <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
+                                            <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
+                                        </tr>
+                                    </table>    
+                                    <!--<div id="opcionesBox" style="position: absolute; left: 320px; background:white; visibility:hidden;">
+                                        <canvas id="canvasOpcion" width="200" height="200" style=" border: 0px solid #000000"></canvas>
+                                        <br><button class="btn btn-default" name="btn1" onclick="validarIguales()">Igual</button>
+                                        <button class="btn btn-default" name="btn2" onclick="validarDiferentes()">Diferente</button>
+                                    </div>--> 
+                                    <div id="estimuloBox" style="position:relative; left:20px; top:20px;  background: white; visibility: visible; padding-bottom: 100px; width:205px; height:205px">
+										<table border="0" id="tabla">
+											<tr>
+												<td><canvas id="micanvas" onclick='contar1()' width="100" height="100"></canvas>
+												</td>
+												<td> <canvas id="micanvas2" onclick='contar2()' width="100" height="100"></canvas>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													 <canvas id="micanvas3" onclick='contar3()' width="100" height="100"></canvas>
+												</td>
+												<td>
+													 <canvas id="micanvas4" onclick='contar4()' width="100" height="100"></canvas>
+												</td>
+											</tr>
+										</table>
+                                    </div>
+                                    <div id="resultadosBox" style="position:absolute; left:350px; top:140px;  background: white; visibility: hidden;">
+                                        <table class="table-condensed">             
+                                            <tr>
+                                                <td>
+                                                   <!-- <button class="btn btn-default" onclick="pasarVariables('RegistraResultados', 'curp,aciertos,errores,nivel,actividad')">Guardar resultados</button>-->  
+                                                </td>
+                                            </tr>
+                                        </table> 
+                                    </div>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <!--PANEL PARA LAS INSTRUCCIONES-->
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Niveles</div>
+                            <div class="panel panel-body" id="Prueba1">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(1);" value="1" checked/>
+											Nivel 1: Las imágenes serán divididas con un corte vertical.
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(2);" value="2"/>
+											Nivel 2: Las imágenes serán divididas con un corte vertical a blanco y negro.
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(3);" value="3"/>
+											Nivel 3: Las imágenes serán divididas con un corte vertical manteniendo solo la silueta.
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(4);"  value="4"/>
+											Nivel 4: Las imágenes serán divididas con un corte horizontal.
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(5);" value="5"/>
+											Nivel 5: Las imágenes serán divididas con un corte horizontal a blanco y negro.
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(6)" value="6">
+											Nivel 6: Las imágenes serán divididas con un corte horizontal manteniendo solo la silueta.
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(7)" value="7">
+											Nivel 7: Las imágenes serán divididas con un corte diagonal.
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(8)" value="8">
+											Nivel 8: Las imágenes serán divididas con un corte diagonal a blanco y negro.
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(9)" value="9">
+											Nivel 9: Las imágenes serán divididas con un corte diagonal manteniendo solo la silueta.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+			</div>
+		</div>        <!--TERMINA EL PANEL PARA NIVEL 1-->
+	</body>
+	<!--<script type="text/javascript" src="prueba.js"></script>-->
+	<script type="text/javascript" src="scriptAct11.js"></script>
+</html>
