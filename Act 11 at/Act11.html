@@ -1,0 +1,166 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="Utf-8"/>
+		<title>Actividad 11</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<style type="text/css">
+			.divEstimulo{
+					 position: relative;
+					 width:70px; 
+					 height:70px; 
+					 background:white; 
+					 border:2px solid black;
+					 display: flex;
+					align-items: center;
+					justify-content:center 
+				}
+				.divBlanco{
+					 position: relative;
+					 width:70px; 
+					 height:70px; 
+					 background:white; 
+					 border:none;
+				}
+		</style>
+	</head>
+	<body onload="Instrucciones();">
+<!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <h2>Actividad 11</h2>
+                <!--PANEL PARA UN NIVEL 1 DE UNA ACTIVIDAD 11-->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Nivel: <span id="nivel">1</span> </div>
+                            <div class="panel panel-body">
+                                <!--tabla de controles para el nivel -->
+                                <center> 
+                                    <table class="table-condensed">
+                                        <tr>
+                                            <td> <button class="btn btn-success" onclick="iniciarEjercicio();">Iniciar</button></td>
+                                            <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
+                                            <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
+                                        </tr>
+                                    </table> 
+                                    <!--Div que muestra los estimulos
+                                    <div id="estimuloBox" style="position:absolute; left: 400px; background: white; visibility: visible;">
+                                        <font style="font-size: 4cm;"><p id="estimulo"></p></font>
+                                        <br>
+                                    </div> 
+                                    -->
+                                    <div id="estimuloBox" style="position: relative; background: white; visibility:visible;">
+										<table cellspacing="100" border="1">
+											<tr cellspacing="0">
+												<td cellspacing="0"><div class="divEstimulo" id="E0">1</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E1">2</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E2">3</div></td>                 
+											</tr>
+											<tr cellspacing="0">
+												<td cellspacing="0"><div class="divEstimulo" id="E3">4</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E4">5</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E5">6</div></td>
+											</tr>
+											<tr cellspacing="0">
+												<td cellspacing="0"><div class="divEstimulo" id="E6">7</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E7">8</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E8">9</div></td>
+											</tr>
+					                    </table>
+                                    </div>  
+									<!--Div que muestra los resultados-->
+                                    <div id="resultadosBox" style="position: absolute; left:400px; top: 150px; background: white; visibility: hidden; ">
+                                                    <button class="btn btn-default" onclick="pasarVariables('RegistraResultados', 'curp,aciertos,errores,nivel,actividad')">Guardar resultados</button>
+                                    </div>
+                                    <div id="opcionesBox" style="position:relative;  background: white; visibility: hidden;">
+										<table cellspacing="100" border="1">
+											<tr cellspacing="0">
+												<td cellspacing="0"><div class="divEstimulo" id="E9" onclick="validarRespuesta('E0')">1</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E10" onclick="validarRespuesta('E1')">2</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E11" onclick="validarRespuesta('E2')">3</div></td>                 
+											</tr>
+											<tr cellspacing="0">
+												<td cellspacing="0"><div class="divEstimulo" id="E12" onclick="validarRespuesta('E3')">4</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E13" onclick="validarRespuesta('E4')">5</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E14" onclick="validarRespuesta('E5')">6</div></td>
+											</tr>
+											<tr cellspacing="0">
+												<td cellspacing="0"><div class="divEstimulo" id="E15" onclick="validarRespuesta('E6')">7</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E16" onclick="validarRespuesta('E7')">8</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E17" onclick="validarRespuesta('E8')">9</div></td>
+											</tr>
+					                    </table>
+                                    </div>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <!--PANEL PARA LAS INSTRUCCIONES-->
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+							<div class="panel-heading">Fases</div>
+							<div class="panel panel-body">
+								<div class="radio">
+									<label>
+										<input type="radio" name="fases" onclick="setFase(1);" value="1" checked/>
+										Fase 1: Hay números de fondo en cada celda.
+									</label>
+									<br>
+									<label>
+										<input type="radio" name="fases" onclick="setFase(2);" value="2"/>
+										Fase 2: Las celdas no poseen números de fondo.
+									</label>
+								</div>
+							</div>
+							<div class="panel-heading">Niveles</div>
+                            <div class="panel panel-body">
+                                <div class="radio">
+                                    <br><label>
+                                        <input type="radio" name="niveles" onclick="setNivel(1,2000,1);" value="1" checked/>
+                                        Nivel 1. Tabla de 1x2, un estímulo.
+                                    </label>
+                                    <br><label>
+                                        <input type="radio" name="niveles" onclick="setNivel(2,2500,2);" value="2"/>
+                                        Nivel 2: Tabla de 1X2, dos estímulos.
+                                    </label>
+                                    <br><label>
+                                        <input type="radio" name="niveles" onclick="setNivel(3,2000,1);" value="3"/>
+                                        Nivel 3 Tabla de 2x3, un estímulo.
+                                    </label>
+                                    <br><label>
+                                        <input type="radio" name="niveles" onclick="setNivel(4,2500,2);"  value="4"/>
+                                        Nivel 4: Tabla de 2x3, dos estímulos.
+                                    </label>
+                                    <br><label>
+                                        <input type="radio" name="niveles" onclick="setNivel(5,3500,3);" value="5"/>
+                                        Nivel 5: Tabla de 2x3, tres estímulos.
+                                    </label>
+                                    <br><label>
+                                        <input type="radio" name="niveles" onclick="setNivel(6,2000,1);" value="2"/>
+                                        Nivel 6, Tabla de 3x3, un estímulo.
+                                    </label>
+                                    <br><label>
+                                        <input type="radio" name="niveles" onclick="setNivel(7,2500,2);" value="3"/>
+                                        Nivel 7, Tabla de 3x3, dos estímulos.
+                                    </label>
+                                    <br><label>
+                                        <input type="radio" name="niveles" onclick="setNivel(8,3500,3);"  value="4"/>
+                                        Nivel 8, Tabla de 3x3, tres estímulos.
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                        </div>      
+                    </div>
+                </div>
+                <!--TERMINA EL PANEL PARA NIVEL 1-->
+</div>
+</div>
+
+</body>
+<script type="text/javascript" src="scriptAct11.js"></script>
+</html>
