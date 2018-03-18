@@ -36,8 +36,8 @@ function validarEvento(evento){
 	console.log("codigo de la tecla:"+codigo);
 	//Codigo 32 = barraEspaciadora
     //idElemento 21 = X
-	if(codigo === 32){
-		if(idElemento === 21 || cantidadEspacios === 1){
+	if(codigo === 32 && cantidadEspacios === 0){
+		if(idElemento === 21){
 			errores++;    
 			document.getElementById("errores").innerHTML = errores;	
 			cantidadEspacios = 1;		
@@ -95,8 +95,6 @@ function mostrarlista(){
     console.log("contador:"+contador+"cantidadLetras:"+cantidadLetras+"tiempo de cambio:"+tiempoLetra);
     if(cantidadLetras === contador){
 		finalizarActividad();
-		
-
     }
 }
 
@@ -109,8 +107,7 @@ function finalizarActividad(){
 }
 
 function teclado(datos){
-    //console.log(datos); Muestra todos las propiedades de la tecla apretada
-    
+    //console.log(datos); Muestra todos las propiedades de la tecla apretada   
 }
 
 function mostrarResultados(){
