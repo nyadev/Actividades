@@ -1,0 +1,59 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="Utf-8"/>
+		<title>Actividad 17</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	</head>
+	<body onload="Instrucciones();">
+	<!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <h2>Actividad 17</h2><br>
+                <!--PANEL PARA UN NIVEL 1 DE UNA ACTIVIDAD 3-->
+                <div class="row" style="width:1100px; height:700px">
+                    <div class="col-lg-8" style="width:1100px; height:700px">
+                        <div class="panel panel-primary" style="width:1100px; height:700px">
+                            <div class="panel-heading">Posición en el espacio</div>
+                            <div class="panel panel-body">
+                                <!--tabla de controles para el nivel -->
+                                <center> 
+                                    <table class="table-condensed">
+                                        <tr>
+                                            <td> <button class="btn btn-success" onclick="iniciarEjercicio();">Iniciar</button></td>
+                                            <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
+                                            <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
+                                        </tr>
+                                    </table><br>  
+                                    <div id="opcionesBox" style="position: absolute; background:white; visibility:hidden; width: 1060px; height:560px;">
+                                        <canvas id="figuraFija" height="200"></canvas>
+										<br><br><br>
+										<canvas id="canvasOpcion1" width="200" height="200" onclick="validarIguales(1)"></canvas>
+                                        <canvas id="canvasOpcion2" width="200" height="200" onclick="validarIguales(2)"></canvas>
+                                        <canvas id="canvasOpcion3" width="200" height="200" onclick="validarIguales(3)"></canvas>
+                                        <canvas id="canvasOpcion4" width="200" height="200" onclick="validarIguales(4)"></canvas>
+                                        <canvas id="canvasOpcion5" width="200" height="200" onclick="validarIguales(5)"></canvas>
+                                    </div> 
+                                    <div id="estimuloBox" style="position: relative; background: white; visibility:hidden;">
+                                        <canvas id="canvasEstimulo" width="200" height="250" style=" border: 0px solid #000000"></canvas>
+                                    </div>
+                                    <div id="resultadosBox" style="position:absolute; left:350px; top:140px;  background: white; visibility: hidden;">
+                                        <table class="table-condensed">             
+                                            <tr>
+                                                <td>
+                                                    <!--<button class="btn btn-default" onclick="pasarVariables('RegistraResultados', 'curp,aciertos,errores,nivel,actividad')">Guardar resultados</button>-->                                                    
+                                                </td>
+                                            </tr>
+                                        </table> 
+                                    </div>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>       <!--TERMINA EL PANEL PARA NIVEL 1-->
+	</body>
+	<script type="text/javascript" src="scriptAct17.js"></script>
+</html>
