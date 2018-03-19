@@ -1,0 +1,69 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="Utf-8"/>
+		<title>Actividad 15</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	</head>
+	<body onload="Instrucciones();">
+<!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <h2>Actividad 15</h2>
+                <!--PANEL PARA UN NIVEL 1 DE UNA ACTIVIDAD 3-->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"> Control inhibitorio verbal &nbsp; &nbsp; &nbsp; &nbsp; Nivel: <span id="nivel">1</span> </div>
+                            <div class="panel panel-body">
+                                <!--tabla de controles para el nivel -->
+                                <center> 
+                                    <table class="table-condensed">
+                                        <tr>
+                                            <td> <button class="btn btn-success" onclick="iniciarEjercicio();">Iniciar</button></td>
+                                            <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
+                                            <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
+                                        </tr>
+                                    </table> 
+                                    <div id="estimuloBox" style="position:relative; left: 40px; background: white; visibility: visible; width:600px;">
+                                        <font style="font-size: 4cm;"><p id="respuesta"></p></font>
+										<font style="font-size: 4cm;"><p id="estimulo"></p></font>
+                                        <br>
+                                    </div>   
+                                    <div id="resultadosBox" style="position: absolute; left:400px; top: 150px; background: white; visibility: hidden; ">
+                                        <button class="btn btn-default" onclick="pasarVariables('RegistraResultados', 'curp,aciertos,errores,nivel,actividad')">Guardar resultados</button>
+                                    </div>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <!--PANEL PARA LAS INSTRUCCIONES-->
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Nivel</div>
+                            <div class="panel panel-body">
+                                <div class="radio">
+                                    <label>
+										<input type="radio" name="niveles" onclick="setNivel(1,45000);" value="1" checked/>
+											Nivel 1: 1 número 45 segundos.
+									</label>
+									<br><label>
+										<input type="radio" name="niveles" onclick="setNivel(2,90000);" value="2"/>
+											Nivel 2: 1 número 90 segundos.
+									</label>
+									<br><label>
+										<input type="radio" name="niveles" onclick="setNivel(3,120000);" value="3"/>
+											Nivel 3: 1 número 120 segundos.
+									</label>                            
+                                </div>
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+                <!--TERMINA EL PANEL PARA NIVEL 1-->
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="scriptAct15.js"></script>
+</html>
