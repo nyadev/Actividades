@@ -1,0 +1,119 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="Utf-8"/>
+		<title>Actividad 13</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<style type="text/css">
+			.divEstimulo{
+				position: relative;
+				width:50px; 
+				height:50px; 
+				background:white; 
+				display: flex;
+				align-items: center;
+				justify-content:center;
+			}
+		</style>
+	</head>
+	<body onload="Instrucciones();">
+	<audio id="pista1" src="acierto.mp3" preload="auto"></audio>
+	<audio id="pista2" src="error.mp3" preload="auto"></audio>
+<!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <h2>Actividad 13</h2>
+                <!--PANEL PARA UN NIVEL 1 DE UNA ACTIVIDAD 12-->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Nivel: <span id="nivel">1</span> </div>
+                            <div class="panel panel-body">
+                                <!--tabla de controles para el nivel -->
+                                <center> 
+                                    <table class="table-condensed">
+                                        <tr>
+                                            <td><button class="btn btn-success" onclick="iniciarEjercicio();">Iniciar</button></td>
+                                            <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
+                                            <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
+                                        </tr>
+                                    </table> 
+                                    <div class="row" style=" height:300"> <!--DIV QUE CONTIENE LAS TRES OPCIONES, ESTIMULO, OPCIONES Y RESULTADOS-->
+										<div id="estimuloBox" style="position: absolute; left:40%; top: 30%; background: white; visibility:visible;">
+											<font style="font-size: 4cm;"><p id="estimulo"></p></font>
+											<br>
+										</div>  
+                        <!--Div que muestra los resultados-->
+										<div id="resultadosBox" style="position: absolute; left:46%; top: 36%; background: white; visibility: hidden; ">
+                                                   <button class="btn btn-default" onclick="pasarVariables('RegistraResultados', 'curp,aciertos,errores,nivel,actividad')">Guardar resultados</button>
+										</div>
+										<div id="opcionesBox" style="position:absolute; left:40%; top: 30%; background: white; visibility: hidden;">    
+											<table cellspacing="100" border="1">
+											<tr cellspacing="0">
+												<td cellspacing="0"><div class="divEstimulo" id="E1" onclick="validarRespuesta(1)">1</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E2" onclick="validarRespuesta(2)">2</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E3" onclick="validarRespuesta(3)">3</div></td>                 
+											</tr>
+											<tr cellspacing="0">
+												<td cellspacing="0"><div class="divEstimulo" id="E4" onclick="validarRespuesta(4)">4</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E5" onclick="validarRespuesta(5)">5</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E6" onclick="validarRespuesta(6)">6</div></td>
+											</tr>
+											<tr cellspacing="0">
+												<td cellspacing="0"><div class="divEstimulo" id="E7" onclick="validarRespuesta(7)">7</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E8" onclick="validarRespuesta(8)">8</div></td>
+												<td cellspacing="0"><div class="divEstimulo" id="E9" onclick="validarRespuesta(9)">9</div></td>
+											</tr>
+					                    </table>
+										</div>
+                                    </div><!--TERMINA DIV QUE CONTIENE LAS TRES OPCIONES-->                                  
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <!--PANEL PARA LAS INSTRUCCIONES-->
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+							<div class="panel-heading">Niveles</div>
+							<div class="panel panel-body">
+								<div class="radio">
+									<label>
+										<input type="radio" name="niveles" onclick="setNivel(1);" value="1" checked/>
+											Nivel 1: 2 números.
+									</label>
+									<br><label>
+										<input type="radio" name="niveles" onclick="setNivel(2);" value="2"/>
+											Nivel 2: 3 números.
+									</label>
+									<br><label>
+										<input type="radio" name="niveles" onclick="setNivel(3);" value="3"/>
+											Nivel 3: 4 números.
+									</label>
+									<br><label>
+										<input type="radio" name="niveles" onclick="setNivel(4);"  value="4"/>
+											Nivel 4: 5 números.
+									</label>
+									<br><label>
+										<input type="radio" name="niveles" onclick="setNivel(5);" value="5"/>
+											Nivel 5: 6 números.
+									</label>
+									<br><label>
+										<input type="radio" name="niveles" onclick="setNivel(6);" value="6"/>
+											Nivel 6: 7 números.
+									</label>
+									<br><label>
+										<input type="radio" name="niveles" onclick="setNivel(7);" value="7"/>
+											Nivel 7: 8 números.
+									</label>
+								</div>
+							</div>
+                        </div>
+					</div>
+                <!--TERMINA EL PANEL PARA NIVEL 1-->
+				</div>
+			</div>
+		</div>
+	</body>
+<script type="text/javascript" src="scriptAct13.js"></script>
+</html>
