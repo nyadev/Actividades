@@ -90,12 +90,16 @@ function iniciarEjercicio(){
     contador = 0;
 	respuesta = 0;
 	if(nivel > 3){
+		var list;
 		respuestaArreglo = [];
 		cantiRespuestas = 2;
-		respuestaTemporal = lista[numeroAleatoreo(lista)];
+		list = numeroAleatoreo(lista);
+		respuestaTemporal = lista[list];
 		respuestaArreglo.push(respuestaTemporal);
-		respuestaTemporal = lista[numeroAleatoreo(lista)];
+		lista.splice(list,1);
+		respuestaTemporal = lista[list];
 		respuestaArreglo.push(respuestaTemporal);
+		lista = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 		msg = respuestaArreglo[0] + " " + respuestaArreglo[1];
 	}else{
 		cantiRespuestas = 1;
