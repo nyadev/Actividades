@@ -1,0 +1,134 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="Utf-8"/>
+		<title>Actividad 15</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<style>
+			table#tabla td{
+				border-style: solid;
+				border-width: 2px;
+				border-color: rgb(0, 106, 106);
+			}
+			table#tabla td#t0{
+				border: none;
+			}
+		</style>
+	</head>
+	<body onload="Instrucciones();">
+<!-- Page Content -->
+        <div id="page-wrapper"> 
+            <div class="container-fluid">
+                <h2>Actividad 15</h2>
+                <!--PANEL PARA UN NIVEL 1 DE UNA ACTIVIDAD 3-->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Relaciones Espaciales</div>
+                            <div class="panel panel-body">
+                                <!--tabla de controles para el nivel -->
+                                <center> 
+                                    <table class="table-condensed">
+                                        <tr>
+                                            <td> <button id="comienzo" class="btn btn-success" onclick="iniciarEjercicio();">Iniciar</button></td>
+                                            <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
+                                            <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
+                                        </tr>
+                                    </table>
+									<div style="visibility:hidden">
+										<br>
+										<font style="font-size: 1cm;"><p id="mensaje"></p></font>
+									</div>
+									<div  style="visibility:hidden">
+										<br>
+										<table id="tabla" width="480px">
+											<tr>
+												<td><div id="div1" height = "80px";><img src="" height="80px" id="imagen1"></div></td>
+												<td><div id="div2" height = "80px";><img src="" height="80px" id="imagen2"></div></td>
+												<td><div id="div3" height = "80px";><img src="" height="80px" id="imagen3"></div></td>
+												<td><div id="div4" height = "80px";><img src="" height="80px" id="imagen4"></div></td>
+												<td><div id="div5" height = "80px";><img src="" height="80px" id="imagen5"></div></td>
+												<td><div id="div6" height = "80px";><img src="" height="80px" id="imagen6"></div></td>
+											</tr>
+											<tr>	
+												<td><div id="div7" height = "80px";><img src="" height="80px" id="imagen7"></div></td>
+												<td><div id="div8" height = "80px";><img src="" height="80px" id="imagen8"></div></td>
+												<td><div id="div9" height = "80px";><img src="" height="80px" id="imagen9"></div></td>
+												<td><div id="div10" height = "80px";><img src="" height="80px" id="imagen10"></div></td>
+												<td><div id="div11" height = "80px";><img src="" height="80px" id="imagen11"></div></td>
+												<td><div id="div12" height = "80px";><img src="" height="80px" id="imagen12"></div></td>
+												
+											</tr>
+											<tr>	
+												<td><div id="div13" height = "80px";><img src="" height="80px" id="imagen13"></div></td>
+												<td><div id="div14" height = "80px";><img src="" height="80px" id="imagen14"></div></td>
+												<td><div id="div15" height = "80px";><img src="" height="80px" id="imagen15"></div></td>
+												<td><div id="div16" height = "80px";><img src="" height="80px" id="imagen16"></div></td>
+												<td><div id="div17" height = "80px";><img src="" height="80px" id="imagen17"></div></td>
+												<td><div id="div18" height = "80px";><img src="" height="80px" id="imagen18"></div></td>									
+											</tr>
+											<tr>
+												<td><div id="div19" height = "80px";><img src="" height="80px" id="imagen19"></div></td>
+												<td><div id="div20" height = "80px";><img src="" height="80px" id="imagen20"></div></td>
+												<td><div id="div21" height = "80px";><img src="" height="80px" id="imagen21"></div></td>
+												<td><div id="div22" height = "80px";><img src="" height="80px" id="imagen22"></div></td>
+												<td><div id="div23" height = "80px";><img src="" height="80px" id="imagen23"></div></td>
+												<td><div id="div24" height = "80px";><img src="" height="80px" id="imagen24"></div></td>											
+											</tr>
+											<tr>
+												<td id="t0"></td>
+												<td id="t0"></td>
+												<td id="t0" colspan="2"><center><div height="80px"  onclick="validarMovimiento(-6)"><img src="arriba.png" height="80px"></div></center></td>
+											</tr>
+											<tr>
+												<td id="t0"></td>
+												<td id="t0" colspan="2">
+													<center>
+														<div height="80px" onclick="validarMovimiento(-1)"><img src="izquierda.png" height="80px"></div>
+													</center>
+												</td>
+												<td id="t0" colspan="2">
+													<center>
+														<div height="80px"  onclick="validarMovimiento(1)"><img src="derecha.png" height="80px"></div>
+													</center>
+												</td>
+											</tr>
+											<tr>
+												<td id="t0"></td>
+												<td id="t0"></td>
+												<td id="t0" colspan="2">
+													<center>
+														<div height="80px" onclick="validarMovimiento(6)"><img src="abajo.png" height="80px"></div>
+													</center>
+												</td>
+											</tr>
+										</table>	
+									</div>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <!--PANEL PARA LAS INSTRUCCIONES-->
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+							<div class="panel-heading">Fases</div>
+                            <div class="panel panel-body">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="fases" onclick="setFase(1);" value="1" id="fase1" checked/>
+										Fase 1: El niño deberá llegar a la meta siguiendo instrucciones que se muestran (izquierda, derecha, arriba o abajo).
+                                    </label>
+									<br>
+                                    <label>
+                                        <input type="radio" name="fases" onclick="setFase(2);" value="2" id="fase2"/>
+                                        Fase 2: El paciente deberá llegar a la meta dando clic sobre la flecha correspondiente, recorriendo todos los cuadros blancos.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+</body>
+<script type="text/javascript" src="scriptAct15.js"></script>
+</html>
