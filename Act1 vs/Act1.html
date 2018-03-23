@@ -1,0 +1,73 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="Utf-8"/>
+	<title>Actividad 1</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<style>
+		#estimulo {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            animation-name: animacion;
+            animation-duration: 30s;
+            animation-iteration-count: infinite;
+			animation-play-state: paused;
+        }
+		@keyframes animacion {
+            0%  	{left:0px; top:0px;}
+			12.5%	{left:0px; top:-130px;}
+            25% 	{left:340px; top:-130px;}
+            37.5% 	{left:340px; top:180px;}
+			50%		{left:0px; top:180px;}
+			62.5% 	{left:-340px; top:180px;}
+            75% 	{left:-340px; top:-130px;}
+			87.5% 	{left:0px; top:-130px;}
+            100% 	{left:0px; top:0px;}
+        }
+	</style>
+</head>
+<body onload="Instrucciones();">
+
+<!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <h2>Actividad 1</h2>
+                <!--PANEL PARA UN NIVEL 1 DE UNA ACTIVIDAD 3-->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Coordinación Visomotriz</div>
+                            <div class="panel panel-body">
+                                <!--tabla de controles para el nivel -->
+                                <center> 
+                                    <table class="table-condensed">
+                                        <tr>
+                                            <td id="comienzo">
+												<button  class="btn btn-success" onclick="iniciarEjercicio();" id="btn">Iniciar</button>
+												Periodo del ciclo: <input id="tiempo" type="number" min="10" max="60" value="30">
+											</td>	
+											<td> <button id="fin" class="btn btn-danger" onclick="finalizarEjercicio();" style="visibility:hidden">Parar</button></td>	
+                                        </tr>
+                                    </table>
+									<div id="Est" style="visibility:hidden">
+										<table height="360px">
+											<tr>
+												<td>
+													<div id="estimulo"><img src = "icono.png" height="60px"/></div>
+												</td>
+											</tr>
+										</table>
+									</div>
+                                </center> 
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+	</body>
+	<script type="text/javascript" src="scriptAct1.js"></script>
+</html>
+
+	
