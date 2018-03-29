@@ -12,6 +12,7 @@ var contador = 0;
 var cantidadLetras = 12;
 var cantidadDeEspacios = 0;
 var msg = '';
+var radioBotones = document.getElementsByName("niveles");
 //Tiempos
 var retardo; //Variable que contiene el tiempo en que se muestra cada letra.
 var tiempoMustraResultados = 60000;//Tiempo que tarda para mostrar los resultados.
@@ -19,15 +20,16 @@ var tiempoLetra = 5000;//Tiempo para que cambie de una letra a otra.
 
 //Funcion para obtener el número aleatorio
 function numeroAleatoreo(){
-        var aleatorio = 0;        
-      aleatorio = Math.floor((Math.random()*lista.length));
-      return aleatorio;
-    }
+    var aleatorio = 0;        
+    aleatorio = Math.floor((Math.random()*lista.length));
+    return aleatorio;
+}
 
 function Instrucciones(){
    swal("Instrucciones",
     "Aparecerán letras aleatoriamente, el paciente deberá apretar la barra espaciadora cada vez que aparezca la letra “X”.");
 }
+
 function mostrarlista(){
     idElemento = numeroAleatoreo();
     document.getElementById("estimulo").innerHTML=lista[idElemento];
@@ -42,20 +44,19 @@ function mostrarlista(){
     }
 }
 
-
-
 function validarEvento(evento){
 	var codigo = evento.keyCode;
 	console.log("codigo de la tecla:"+codigo);
 	//Codigo 32 = barraEspaciadora
     //idElemento 21 = X
-	if(cantidadDeEspacios ===0 && codigo === 32){
-		if(idElemento === 18 || idElemento === 3 || idElemento === 1 || idElemento === 6 || idElemento === 9 || idElemento ===   14){
+	if(cantidadDeEspacios === 0 && codigo === 32){
+		if(idElemento === 18 || idElemento === 3 || idElemento === 1 || idElemento === 6 || idElemento === 9 || idElemento === 14){
 			aciertos++;
 			cantidadDeEspacios = 1;
 			document.getElementById("aciertos").innerHTML = aciertos;			
 		}
 		else{
+			swal('Error');
 			errores++;
 			cantidadDeEspacios = 1;		
 			document.getElementById("errores").innerHTML = errores;	
@@ -63,10 +64,9 @@ function validarEvento(evento){
 	}		
 }
 
-
 function iniciarSecuencia(){
 	mostrarEstimulo();
-	retardo=setInterval(function(){mostrarlista();},tiempoLetra);//5000 son 5s que se muestra una letra
+	retardo = setInterval(function(){mostrarlista();},tiempoLetra);//5000 son 5s que se muestra una letra
 }
 
 function iniciarEjercicio(){
@@ -82,30 +82,33 @@ function iniciarEjercicio(){
 }
 
 function teclado(datos){
-    //console.log(datos); Muestra todos las propiedades de la tecla apretada
-    
+    //console.log(datos); Muestra todos las propiedades de la tecla apretada 
 }
 
 function mostrarResultados(){
 	document.getElementById("estimuloBox").style.visibility = "hidden";
 	document.getElementById("opcionesBox").style.visibility = "hidden";
 	document.getElementById("resultadosBox").style.visibility = "visible";
+	document.getElementById("save-results").style.display = "table";
 }
+
 function mostrarOpciones(){
 	document.getElementById("estimuloBox").style.visibility = "hidden";
 	document.getElementById("opcionesBox").style.visibility = "visible";
 	document.getElementById("resultadosBox").style.visibility = "hidden";
-
 }
+
 function mostrarEstimulo(){
 	document.getElementById("estimuloBox").style.visibility = "visible";
 	document.getElementById("opcionesBox").style.visibility = "hidden";
 	document.getElementById("resultadosBox").style.visibility = "hidden";
-   
-   
+	document.getElementById("comienzo").style.visibility = "hidden";
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = true;
+	}
 }
 
- function setNivel(unNivel, tiempo){
+function setNivel(unNivel, tiempo){
     nivel = unNivel;
     tiempoMustraResultados = tiempo;
     document.getElementById("nivel").innerHTML = nivel;
@@ -129,13 +132,17 @@ function mostrarEstimulo(){
         cantidadLetras = 300;
         tiempoLetra = 1000;
     }
- }
+}
  
- function pasarVariables(pagina, nombres) {
-    pagina += "?";
-    nomVec = nombres.split(",");
-    for (i = 0; i < nomVec.length; i++)
-        pagina += nomVec[i] + "=" + escape(eval(nomVec[i])) + "&";
-    pagina = pagina.substring(0, pagina.length - 1);
-    location.href = pagina;
+function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + aciertos, "Errores: " + errores);
+    document.getElementById("save-results").style.display = "none";
+    document.getElementById("aciertos").innerHTML = 0;
+    document.getElementById("errores").innerHTML = 0;
+	document.getElementById("comienzo").style.visibility = "visible"; 
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = false;
+	}
+    return;
 }

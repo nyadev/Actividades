@@ -1,16 +1,15 @@
 var images;
 var usedImages;
-
 //Estas variables se inicializan en begin();
 var aciertos;
 var errores;
-
 var level = 1;
 var correctSrc;
 var nCorrects;
 var stopCounting;
 var timelap;
 var lap;
+var radioBotones = document.getElementsByName("nivel");
 
 function instructions(){
   swal("Instrucciones","Se mostrará una serie de estímulos aleatorios donde el niño deberá seleccionar con el cursor el estímulo indicado durante cierto tiempo");
@@ -25,18 +24,19 @@ function begin(){
     nCorrects = 0;
     images = [["nCirculo.png","nCirculoCirculo.png","nCirculoEstrella.png","nEstrella.png","nEstrella8.png", "nEstrella12.png","nTick.png"],
     ["rCirculo.png","rCirculoCirculo.png","rCirculoEstrella.png","rEstrella.png","rEstrella8.png", "rEstrella12.png","rTick.png"]];
-
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = true;
+	}
     usedImages = null;
     document.getElementById("aciertos").innerHTML = 0;
     document.getElementById("errores").innerHTML = 0;
     aciertos = 0;
     errores = 0;
     assingKey();
-    for (var i=1;i<=40;i++) {
+    for (var i = 1;i <= 40;i++) {
         (function(ind) {
-                setTimeout(function(){assign(ind);lap=ind;}, timelap *ind);
+            setTimeout(function(){assign(ind);lap=ind;}, timelap *ind);
         })(i);
-
     }
 }
 
@@ -83,7 +83,7 @@ function validate(id, src){
     //Hace un split porque originalmente la src que toma desde el html esta como file//:C//Documents...... y pues no coincide
     justsrc = splitsrc[splitsrc.length-1];
     //Compara los src de cada imagen
-    if(justsrc == correctSrc){
+    if(justsrc === correctSrc){
         count(true);
         makedisappear(id)
     }
@@ -91,10 +91,9 @@ function validate(id, src){
         count(false);
         swal('Error');
     }
-
     //Si ya se acabaron los estimulos clave termina el ejercicio y despliega el boton "Guardar Resultados"
     //nCorrects lo asigna al empezar, son el numero de estimulos correctos
-    if((aciertos == nCorrects)&&(lap=="40")){
+    if((aciertos == nCorrects)&&(lap == "40")){
         displaySave(true);
         stopCounting = true;
     }
@@ -109,7 +108,6 @@ function count(r){
         else
             errores++
     }
-
     document.getElementById("aciertos").innerHTML = aciertos;
     document.getElementById("errores").innerHTML = errores;
 }
@@ -129,7 +127,6 @@ function displaySave(bool){
 function saveResults(){
     //aquí es donde despliega los resultados
     swal("Aciertos: " + aciertos, "Errores: " + errores);
-    
     for(var i = 1; i<=40;i++){
         document.getElementById(i).src = "";
         document.getElementById(i).style.display = "none";
@@ -139,5 +136,8 @@ function saveResults(){
     document.getElementById("save-results").style.display = "none";
     document.getElementById("aciertos").innerHTML = "0";
     document.getElementById("errores").innerHTML = "0";
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = false;
+	}
     return;
 }

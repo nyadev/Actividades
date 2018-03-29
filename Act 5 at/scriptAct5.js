@@ -6,88 +6,86 @@ var nivel = 1;
 var actividad = 3;//numero de la actividad
 
 //Variables de la actividad
-var listaNumeros=new Array(1,2,3,4,5,6,7,8,9);
-var idElemento=0;
-var numMaximo=2;//Es la cantidad de numeros que apareceran, por defaul se establecen 2, posteriormente este numero se modifica de acuerdo al nivel
+var listaNumeros = new Array(1,2,3,4,5,6,7,8,9);
+var idElemento = 0;
+var numMaximo = 2;//Es la cantidad de numeros que apareceran, por defaul se establecen 2, posteriormente este numero se modifica de acuerdo al nivel
+var noClick = 0;
 //Tiempos
 var retardo; //Variable que contiene el tiempo en que se muestra cada numero
-var retardoOpciones=3000;//El tiempo que tarda en mostrar las opciones
+var retardoOpciones = 3000;//El tiempo que tarda en mostrar las opciones
+var radioBotones = document.getElementsByName("niveles");
 
 function mezclar(bar){
-   var m= bar.length-1;
-   for (var i=m;i>1;i--){ 
-      alea=Math.floor(i*Math.random()); 
-      temp=bar[i]; 
-       bar[i]=bar[alea]; 
-       bar[alea]=temp; 
+   var m = bar.length-1;
+   for (var i = m; i > 1; i--){ 
+      alea = Math.floor(i*Math.random()); 
+      temp = bar[i]; 
+       bar[i] = bar[alea]; 
+       bar[alea] = temp; 
     }
    return(bar);
 }
 
-
 function mostrarNumero(unLimite){
-    document.getElementById("estimulo").innerHTML=listaNumeros[idElemento];
+    document.getElementById("estimulo").innerHTML = listaNumeros[idElemento];
     console.log(listaNumeros[idElemento]);
     idElemento++;
-    if(idElemento===unLimite){
+    if(idElemento === unLimite){
         console.log("tenemos que parar");
         clearInterval(retardo);
-
     }
-
 }
-var noClick=-1;
-function validar(opcion){
-    noClick++;
 
-    if(listaNumeros[noClick]===opcion){
+function validar(opcion){
+    if(listaNumeros[noClick] === opcion){
+		noClick++;
         aciertos++;
         console.log("En lista:"+listaNumeros[noClick]+" mi opcion:"+opcion + "Numero de aciertos:"+aciertos);
-        document.getElementById("aciertos").innerHTML=aciertos;
+        document.getElementById("aciertos").innerHTML = aciertos;
     }
     else{
         errores++;
         console.log("En lista:"+listaNumeros[noClick]+" mi opcion:"+opcion + "Numero de ERROR:"+errores);
-        document.getElementById("errores").innerHTML=errores;
-        alert("ERROR");
+        document.getElementById("errores").innerHTML = errores;
+        swal("Error");
     }
-    if(nivel==1){
-        if(aciertos===2||errores===2){
+    if(nivel === 1){
+        if(aciertos === 2 || errores === 2){
             mostrarResultados();
         }
     }
-    if(nivel==2){
-        if(aciertos===3||errores===2){
+    if(nivel === 2){
+        if(aciertos === 3 || errores === 2){
             mostrarResultados();
         }
     }
-    if(nivel==3){
-        if(aciertos===4||errores===2){
+    if(nivel === 3){
+        if(aciertos === 4 || errores === 2){
             mostrarResultados();
         }
     }
-    if(nivel==4){
-        if(aciertos===5||errores===2){
+    if(nivel === 4){
+        if(aciertos === 5 || errores === 2){
             mostrarResultados();
         }
     }
-    if(nivel==5){
-        if(aciertos===6||errores===2){
+    if(nivel === 5){
+        if(aciertos === 6 || errores === 2){
             mostrarResultados();
         }
     }
-    if(nivel==6){
-        if(aciertos===7||errores===2){
+    if(nivel === 6){
+        if(aciertos === 7 || errores === 2){
             mostrarResultados();
         }
     }
-    if(nivel==7){
-        if(aciertos===8||errores===2){
+    if(nivel === 7){
+        if(aciertos === 8 || errores === 3){
             mostrarResultados();
         }
     }
-    if(nivel==8){
-        if(aciertos===9||errores===2){
+    if(nivel === 8){
+        if(aciertos === 9 || errores === 3){
             mostrarResultados();
         }
     }
@@ -95,54 +93,71 @@ function validar(opcion){
 
 function iniciarSecuencia(){
 	mostrarEstimulo();
-	
 }
 
 function instrucciones(){
-      swal(
-     "Instrucciones",
-  "Procedimiento: Aparecerán números del 1 al 9 aleatoriamente en la pantalla con duración de un segundo, después de ciertos estímulos aparecerá una pantalla con los números del 1 al 9 y el paciente deberá dar click en el orden en él que aparecieron los estímulos, tendrá dos intentos para realizarlos correctamente.",
-);
+    swal(
+    "Instrucciones",
+	"Aparecerán números del 1 al 9 aleatoriamente en la pantalla con duración de un segundo, después de ciertos estímulos aparecerá una pantalla con los números del 1 al 9 y el paciente deberá dar click en el orden en él que aparecieron los estímulos, tendrá dos intentos para realizarlos correctamente.",
+	);
 }
 
 function iniciarEjercicio(){
-    listaNumeros=mezclar(listaNumeros);
-    idElemento=0;
-	aciertos=0;
-	errores=0;
-    noClick=-1;
-    document.getElementById("estimulo").innerHTML="";
-	document.getElementById("aciertos").innerHTML=aciertos;
-	document.getElementById("errores").innerHTML=errores;
+    listaNumeros = mezclar(listaNumeros);
+    idElemento = 0;
+	aciertos = 0;
+	errores = 0;
+    noClick = 0;
+    document.getElementById("estimulo").innerHTML = "";
+	document.getElementById("aciertos").innerHTML = aciertos;
+	document.getElementById("errores").innerHTML = errores;
     iniciarSecuencia();
     setTimeout(function(){mostrarOpciones();},retardoOpciones);
 }
 
 function mostrarResultados(){
-	document.getElementById("estimuloBox").style.visibility="hidden";
-	document.getElementById("opcionesBox").style.visibility="hidden";
-	document.getElementById("resultadosBox").style.visibility="visible";
+	document.getElementById("estimuloBox").style.visibility = "hidden";
+	document.getElementById("opcionesBox").style.visibility = "hidden";
+	document.getElementById("resultadosBox").style.visibility = "visible";
+	document.getElementById("save-results").style.display = "table";
 }
-function mostrarOpciones(){
-	document.getElementById("estimuloBox").style.visibility="hidden";
-	document.getElementById("opcionesBox").style.visibility="visible";
-	document.getElementById("resultadosBox").style.visibility="hidden";
 
+function mostrarOpciones(){
+	document.getElementById("estimuloBox").style.visibility = "hidden";
+	document.getElementById("opcionesBox").style.visibility = "visible";
+	document.getElementById("resultadosBox").style.visibility = "hidden";
 }
+
 function mostrarEstimulo(){
-	document.getElementById("estimuloBox").style.visibility="visible";
-	document.getElementById("opcionesBox").style.visibility="hidden";
-	document.getElementById("resultadosBox").style.visibility="hidden";
-    retardo=setInterval(function(){mostrarNumero(numMaximo);},1000);
-   
+	document.getElementById("comienzo").style.visibility = "hidden";
+	document.getElementById("estimuloBox").style.visibility = "visible";
+	document.getElementById("opcionesBox").style.visibility = "hidden";
+	document.getElementById("resultadosBox").style.visibility = "hidden";
+    retardo = setInterval(function(){mostrarNumero(numMaximo);},1000);
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = true;
+	}
 }
 
  function setNivel(unNivel, tiempo,numeroLimite){
-    numMaximo=numeroLimite;
-    nivel=unNivel;
-    retardoOpciones=tiempo;//Tiempo en milisegundos en que tarda en aprarecer la capa de opciones
-    document.getElementById("nivel").innerHTML=nivel;
+    numMaximo = numeroLimite;
+    nivel = unNivel;
+    retardoOpciones = tiempo;//Tiempo en milisegundos en que tarda en aprarecer la capa de opciones
+    document.getElementById("nivel").innerHTML = nivel;
  }
+ 
+function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + aciertos, "Errores: " + errores);
+    document.getElementById("save-results").style.display = "none";
+    document.getElementById("aciertos").innerHTML = 0;
+    document.getElementById("errores").innerHTML = 0;
+	document.getElementById("comienzo").style.visibility = "visible"; 
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = false;
+	}
+    return;
+}
  
  function pasarVariables(pagina, nombres) {
     pagina += "?";

@@ -18,6 +18,8 @@ var retardo;
 var retardo2;
 var numEjercicio = 0;
 var cantidadImagenes = tiempoTotal/(tiempoEstimulo);
+var radioBotones = document.getElementsByName("niveles");
+var inicio = document.getElementById("comienzo");
 
 function colorAleatorio(){
     var aleatorio = 0;		
@@ -26,7 +28,8 @@ function colorAleatorio(){
 }
 
 function setNivel(unNivel){
-     if(unNivel === 1){
+	document.getElementById("nivel").innerHTML = unNivel;
+    if(unNivel === 1){
         nivel = unNivel;
         tiempoEstimulo = 5000;
         tiempoTotal = 60000;
@@ -71,15 +74,27 @@ function realizarEjercicio(){
 	
 }
 
-
 function iniciarEjercicio(){
 	numEjercicio = 0;
+	aciertos = 0;
+	errores = 0;
+	inicio.style.visibility = "hidden"; 
+	document.getElementById("aciertos").innerHTML = aciertos;
+	document.getElementById("errores").innerHTML = errores;
+	document.getElementById("save-results").style.display = "none";
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = true;
+	}
 	retardo = setInterval(function(){realizarEjercicio();},tiempoEstimulo);
-	
 }
 
 function finalizarEjercicio(){
 	div.style.visibility = "hidden";
+	document.getElementById("save-results").style.display = "table";
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = false;
+	}
+	clearInterval(retardo);
 }
 
 function validarRespuesta(){
@@ -90,9 +105,20 @@ function validarRespuesta(){
 			document.getElementById("aciertos").innerHTML = aciertos;
 		}
 		else{
+			swal('Error');
 			errores++;
 			cantidadDeClicks = 1;
 			document.getElementById("errores").innerHTML = errores;
 		}
 	}
+}
+
+function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + aciertos, "Errores: " + errores);
+    document.getElementById("save-results").style.display = "none";
+    document.getElementById("aciertos").innerHTML = 0;
+    document.getElementById("errores").innerHTML = 0;
+	inicio.style.visibility = "visible"; 
+    return;
 }

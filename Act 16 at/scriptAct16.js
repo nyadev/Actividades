@@ -19,6 +19,7 @@ var respuesta = 0;
 var respuestaArreglo = [ ];
 var retardo;
 var tiempoMustraResultados = 45000;
+var radioBotones = document.getElementsByName("niveles");
 var tiempoCir = 5000;
 var cantiRespuestas = 1;
 
@@ -130,6 +131,7 @@ function validarEvento(evento){
 				document.getElementById("aciertos").innerHTML = aciertos;			
 			}
 			else{
+				swal('Error');
 				errores++;
 				cantidadDeEspacios = 1;		
 				document.getElementById("errores").innerHTML = errores;	
@@ -143,6 +145,7 @@ function validarEvento(evento){
 				}
 			}
 			if(iguales > 0){
+				swal('Error');
 				errores++;
 				cantidadDeEspacios = 1;		
 				document.getElementById("errores").innerHTML = errores;	
@@ -236,11 +239,16 @@ function mostrarResultados(){
 	document.getElementById("opcionesBox").style.visibility = "hidden";
 	document.getElementById("resultadosBox").style.visibility = "visible";
 	document.removeEventListener("keydown", validarEvento);
+	document.getElementById("save-results").style.display = "table";
 }
 
 function mostrarOpciones(){
 	document.getElementById("opcionesBox").style.visibility = "visible";
 	document.getElementById("resultadosBox").style.visibility = "hidden";
+	document.getElementById("comienzo").style.visibility = "hidden";
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = true;
+	}
 }
 
  function setNivel(unNivel, tiempo){
@@ -264,3 +272,18 @@ function numeroAleatoreo(lista){
     return aleatorio;
 }
  
+function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + aciertos, "Errores: " + errores);
+    document.getElementById("save-results").style.display = "none";
+    document.getElementById("aciertos").innerHTML = 0;
+    document.getElementById("errores").innerHTML = 0;
+	document.getElementById("comienzo").style.visibility = "visible"; 
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = false;
+	}
+	for(var i = 0; i<radioBotones2.length; i++){
+		radioBotones2[i].disabled = false;
+	}
+    return;
+}

@@ -12,6 +12,7 @@ var cantidadNum = 9;
 var cantidadDeEspacios = 0;
 var msg;
 var respuesta;
+var radioBotones = document.getElementsByName("niveles");
 //Tiempos
 var retardo; //Variable que contiene el tiempo en que se muestra cada letra.
 var tiempoMustraResultados = 45000;//Tiempo que tarda para mostrar los resultados.
@@ -19,10 +20,10 @@ var tiempoNum = 5000;//Tiempo para que cambie de una letra a otra.
 
 //Funcion para obtener el número aleatorio
 function numeroAleatoreo(){
-        var aleatorio = 0;        
-      aleatorio = Math.floor((Math.random()*lista.length));
-      return aleatorio;
-    }
+    var aleatorio = 0;        
+    aleatorio = Math.floor((Math.random()*lista.length));
+    return aleatorio;
+}
 
 function Instrucciones(){
    swal("Instrucciones",
@@ -55,13 +56,13 @@ function validarEvento(evento){
 			document.getElementById("aciertos").innerHTML = aciertos;			
 		}
 		else{
+			swal('Error');
 			errores++;
 			cantidadDeEspacios = 1;		
 			document.getElementById("errores").innerHTML = errores;	
 		}		
 	}		
 }
-
 
 function iniciarSecuencia(){
 	mostrarOpciones();
@@ -93,11 +94,16 @@ function mostrarResultados(){
 	document.getElementById("estimuloBox").style.visibility = "hidden";
 	document.getElementById("resultadosBox").style.visibility = "visible";
 	document.removeEventListener("keydown", validarEvento);
+	document.getElementById("save-results").style.display = "table";
 }
 
 function mostrarOpciones(){
 	document.getElementById("estimuloBox").style.visibility = "visible";
 	document.getElementById("resultadosBox").style.visibility = "hidden";
+	document.getElementById("comienzo").style.visibility = "hidden";
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = true;
+	}
 }
 
  function setNivel(unNivel, tiempo){
@@ -115,7 +121,23 @@ function mostrarOpciones(){
     }
  }
  
- function pasarVariables(pagina, nombres) {
+ function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + aciertos, "Errores: " + errores);
+    document.getElementById("save-results").style.display = "none";
+    document.getElementById("aciertos").innerHTML = 0;
+    document.getElementById("errores").innerHTML = 0;
+	document.getElementById("comienzo").style.visibility = "visible"; 
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = false;
+	}
+	for(var i = 0; i<radioBotones2.length; i++){
+		radioBotones2[i].disabled = false;
+	}
+    return;
+}
+ 
+function pasarVariables(pagina, nombres) {
     pagina += "?";
     nomVec = nombres.split(",");
     for (i = 0; i < nomVec.length; i++)

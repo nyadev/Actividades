@@ -15,6 +15,8 @@ var listaCuadros2 = [document.getElementById("E9"), document.getElementById("E10
 					document.getElementById("E12"), document.getElementById("E13"), document.getElementById("E14"), 
 					document.getElementById("E15"), document.getElementById("E16"), document.getElementById("E17")];
 var idElemento = 0;
+var radioBotones = document.getElementsByName("niveles");
+var radioBotones2 = document.getElementsByName("fases");
 var numMaximo = 2;//Es la cantidad de numeros que apareceran, por defaul se establecen 2, posteriormente este numero se modifica de acuerdo al nivel
 //Tiempos
 var retardo; //Variable que contiene el tiempo en que se muestra cada numero
@@ -52,6 +54,7 @@ document.getElementById(listaNumeros[idElemento]).style.background = 'rgb(34, 22
 
 function setFase(unaFase){
 	fase = unaFase;
+	document.getElementById("fase").innerHTML = fase;
 	evaluarFase();
 }
 
@@ -81,19 +84,17 @@ function mostrarNumero(unLimite){
 }
 
 function validarRespuesta(opcion){
-    
-
     if(listaNumeros[noClick] === opcion){
         aciertos++;
-        console.log("En lista:"+listaNumeros[noClick]+" mi opcion:"+opcion + "Numero de aciertos:"+aciertos);
+        console.log("En lista:"+listaNumeros[noClick]+" mi opcion:"+ opcion + "Numero de aciertos:"+aciertos);
         document.getElementById("aciertos").innerHTML = aciertos;
 		noClick++;
     }
     else{
         errores++;
-        console.log("En lista:"+listaNumeros[noClick]+" mi opcion:"+opcion + "Numero de ERROR:"+errores);
+        console.log("En lista:"+listaNumeros[noClick]+" mi opcion:"+ opcion + "Numero de ERROR:"+errores);
         document.getElementById("errores").innerHTML = errores;
-        alert("ERROR");
+        swal("Error");
     }
     if(nivel === 1){
         if(aciertos === 1 || errores === 2){
@@ -161,6 +162,7 @@ function mostrarResultados(){
 	document.getElementById("estimuloBox").style.visibility = "hidden";
 	document.getElementById("opcionesBox").style.visibility = "hidden";
 	document.getElementById("resultadosBox").style.visibility = "visible";
+	document.getElementById("save-results").style.display = "table";
 }
 
 function mostrarOpciones(){
@@ -174,7 +176,13 @@ function mostrarEstimulo(){
 	document.getElementById("opcionesBox").style.visibility = "hidden";
 	document.getElementById("resultadosBox").style.visibility = "hidden";
     retardo = setInterval(function(){mostrarCuadros(numMaximo);},1000);
-   
+	document.getElementById("comienzo").style.visibility = "hidden";
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = true;
+	}
+	for(var i = 0; i<radioBotones2.length; i++){
+		radioBotones2[i].disabled = true;
+	}
 }
 
  function setNivel(unNivel,tiempo,numeroLimite){
@@ -183,8 +191,8 @@ function mostrarEstimulo(){
     retardoOpciones = tiempo;//Tiempo en milisegundos en que tarda en aprarecer la capa de opciones
     document.getElementById("nivel").innerHTML = nivel;
 	for(i = 0; i < listaCuadros.length; i++){
-			listaCuadros[i].style.border = "none";
-			listaCuadros2[i].style.border = "none";
+		listaCuadros[i].style.border = "none";
+		listaCuadros2[i].style.border = "none";
 	}
     if(nivel === 1 || nivel === 2){
 		listaCuadros[3].style.border = "2px solid black";
@@ -216,4 +224,20 @@ function mostrarEstimulo(){
         pagina += nomVec[i] + "=" + escape(eval(nomVec[i])) + "&";
     pagina = pagina.substring(0, pagina.length - 1);
     location.href = pagina;
+}
+
+function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + aciertos, "Errores: " + errores);
+    document.getElementById("save-results").style.display = "none";
+    document.getElementById("aciertos").innerHTML = 0;
+    document.getElementById("errores").innerHTML = 0;
+	document.getElementById("comienzo").style.visibility = "visible"; 
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = false;
+	}
+	for(var i = 0; i<radioBotones2.length; i++){
+		radioBotones2[i].disabled = false;
+	}
+    return;
 }

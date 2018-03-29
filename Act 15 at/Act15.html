@@ -21,7 +21,7 @@
                                 <center> 
                                     <table class="table-condensed">
                                         <tr>
-                                            <td> <button class="btn btn-success" onclick="iniciarEjercicio();">Iniciar</button></td>
+                                            <td> <button class="btn btn-success" onclick="iniciarEjercicio();" id="comienzo">Iniciar</button></td>
                                             <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
                                             <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
                                         </tr>
@@ -32,7 +32,7 @@
                                         <br>
                                     </div>   
                                     <div id="resultadosBox" style="position: absolute; left:400px; top: 150px; background: white; visibility: hidden; ">
-                                        <button class="btn btn-default" onclick="pasarVariables('RegistraResultados', 'curp,aciertos,errores,nivel,actividad')">Guardar resultados</button>
+                                        <input id="save-results" class="btn boton" type="button" value="Guardar resultados" onclick="saveResults()" style="display:none">
                                     </div>
                                 </center>
                             </div>

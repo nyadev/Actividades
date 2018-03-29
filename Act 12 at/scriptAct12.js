@@ -12,6 +12,7 @@ var listaCuadros = [document.getElementById("E0"), document.getElementById("E1")
 var listaNumeros = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 var idElemento = 0;
 var resultado = 0;
+var radioBotones = document.getElementsByName("niveles");
 var numMaximo = nivel+1;//Es la cantidad de numeros que apareceran, por defaul se establecen 2, posteriormente este numero se modifica de acuerdo al nivel
 //Tiempos
 var retardo; //Variable que contiene el tiempo en que se muestra cada numero
@@ -41,7 +42,6 @@ function mostrarNumero(unLimite){
     if(idElemento === unLimite){
         console.log("tenemos que parar");
         clearInterval(retardo);
-
     }
 }
  
@@ -55,6 +55,7 @@ function validarRespuesta(opcion){
 		resultado++;
     }
     else{
+		swal('Error');
         errores++;
         console.log("En lista:" + listaNumeros[resultado] +" mi opcion:" +opcion + "Numero de ERROR:" + errores);
         document.getElementById("errores").innerHTML = errores;
@@ -118,6 +119,7 @@ function mostrarResultados(){
 	document.getElementById("estimuloBox").style.visibility = "hidden";
 	document.getElementById("opcionesBox").style.visibility = "hidden";
 	document.getElementById("resultadosBox").style.visibility = "visible";
+	document.getElementById("save-results").style.display = "table";
 	document.getElementById("estimulo").innerHTML = " ";
 }
 
@@ -132,6 +134,10 @@ function mostrarEstimulo(){
 	document.getElementById("estimuloBox").style.visibility = "visible";
 	document.getElementById("opcionesBox").style.visibility = "hidden";
 	document.getElementById("resultadosBox").style.visibility = "hidden";
+	document.getElementById("comienzo").style.visibility = "hidden";
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = true;
+	}
     retardo = setInterval(function(){mostrarNumero(numMaximo);},1000);
 }
 
@@ -149,4 +155,17 @@ function mostrarEstimulo(){
     pagina = pagina.substring(0, pagina.length - 1);
     location.href = pagina;
 	}
+}
+
+function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + aciertos, "Errores: " + errores);
+    document.getElementById("save-results").style.display = "none";
+    document.getElementById("aciertos").innerHTML = 0;
+    document.getElementById("errores").innerHTML = 0;
+	document.getElementById("comienzo").style.visibility = "visible"; 
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = false;
+	}
+    return;
 }

@@ -1,35 +1,28 @@
 <!DOCTYPE>
 <html>
-<head>
-	<meta charset="Utf-8"/>
-	<title>Actividad 2</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-</head>
-<body onload="instructions();">
-
-
+	<head>
+		<meta charset="Utf-8"/>
+		<title>Actividad 2</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	</head>
+	<body onload="instructions();">
 <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
                 <h2>Actividad 2</h2>
-
                 <!--PANEL PARA LA ACTIVIDAD 2-->
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">Nivel: <span id="level">1</span> </div>
+                            <div class="panel-heading">Atención sostenida y selectiva &nbsp; &nbsp; &nbsp; &nbsp; Nivel: <span id="level">1</span> </div>
                             <div class="panel panel-body">
                                 <!--tabla de controles para el nivel -->
                                 <center> 
                                     <table class="table-condensed">
                                         <tr>
-                                            <td> <button id="begin" class="btn btn-success" 
-                                                        onclick="begin();
-                                                         ">Iniciar</button></td>
-
+                                            <td> <button id="begin" class="btn btn-success" onclick="begin();">Iniciar</button></td>
                                             <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
                                             <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
                                             <td>Clave: <img src="" id="0" name="figure" class="estimulo"></td>
@@ -91,7 +84,7 @@
                                             <td><img src="" id="40" name="figure" class="estimulo" onclick="validate(id,src)"></td>
                                         </tr>
                                     </table>
-                                    <input id="save-results" class="btn boton" type="button" value="Guardar resultados" onclick="saveResults()"> 
+                                    <input id="save-results" class="btn boton" type="button" value="Guardar resultados" onclick="saveResults()" style="display:none"> 
                                 </center>
                             </div>
                         </div>
@@ -99,22 +92,20 @@
                     <!--PANEL PARA LAS INSTRUCCIONES-->
                     <div class="col-lg-4">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Instrucciones generales</div>
+                            <div class="panel-heading">Niveles</div>
                             <div class="panel panel-body">
                                 <div class="radio">
-                                    <br><label>
+                                    <label>
                                         <input type="radio" name="nivel" onclick="setLevel(1);" value="1" checked/>
                                         Nivel 1:  Los estímulos irán apareciendo uno por uno de derecha a izquierda y de arriba abajo, el estímulo clave se encontrará de color rojo.
                                     </label>
                                     <br><label>
                                         <input type="radio" name="nivel" onclick="setLevel(2);" value="2"/>
                                         Nivel 2: Los estímulos irán apareciendo uno por uno de derecha a izquierda y de arriba abajo, el estímulo aparecerá del mismo color (Negro)
-
                                     </label>
                                     <br><label>
                                         <input type="radio" name="nivel" onclick="setLevel(3);" value="3"/>
-                                        Nivel 3: Los estímulos aparecerán al mismo tiempo como la muestra de abajo pero el estímulo clave será Rojo
-
+                                        Nivel 3: Los estímulos aparecerán al mismo tiempo como la muestra de abajo pero el estímulo clave será Rojo.
                                     </label>
                                     <br><label>
                                         <input type="radio" name="nivel" onclick="setLevel(4);"  value="4"/>
@@ -123,20 +114,15 @@
                                     <br><label>
                                         <input type="radio" name="nivel" onclick="setLevel(5);" value="5"/>
                                         Nivel 5: Los estímulos aparecerán al mismo tiempo como la muestra de abajo pero el estímulo clave será del mismo color y tendrá solo un minuto para encontrar todos.
-                                    </label>
-                                    
-
+                                    </label>                                   
                                 </div>
-
                             </div>
-
                         </div>      
                     </div>
                 </div>
                 <!--TERMINA EL PANEL PARA NIVEL 1-->
-</div>
-</div>
-
-</body>
-<script type="text/javascript" src="scriptAct2.js"></script>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="scriptAct2.js"></script>
 </html>

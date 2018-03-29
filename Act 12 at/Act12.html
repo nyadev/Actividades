@@ -28,13 +28,13 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">Nivel: <span id="nivel">1</span> </div>
+                            <div class="panel-heading">Atención sostenida y selectiva verbal &nbsp; &nbsp; &nbsp; &nbsp; Nivel: <span id="nivel">1</span> </div>
                             <div class="panel panel-body">
                                 <!--tabla de controles para el nivel -->
                                 <center> 
                                     <table class="table-condensed">
                                         <tr>
-                                            <td><button class="btn btn-success" onclick="iniciarEjercicio();">Iniciar</button></td>
+                                            <td><button class="btn btn-success" onclick="iniciarEjercicio();" id="comienzo">Iniciar</button></td>
                                             <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
                                             <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
                                         </tr>
@@ -44,9 +44,9 @@
 											<font style="font-size: 4cm;"><p id="estimulo"></p></font>
 											<br>
 										</div>  
-                        <!--Div que muestra los resultados-->
+										<!--Div que muestra los resultados-->
 										<div id="resultadosBox" style="position: absolute; left:46%; top: 36%; background: white; visibility: hidden; ">
-                                                   <button class="btn btn-default" onclick="pasarVariables('RegistraResultados', 'curp,aciertos,errores,nivel,actividad')">Guardar resultados</button>
+                                            <input id="save-results" class="btn boton" type="button" value="Guardar resultados" onclick="saveResults()" style="display:none">
 										</div>
 										<div id="opcionesBox" style="position:absolute; left:40%; top: 30%; background: white; visibility: hidden;">    
 											<table cellspacing="100" border="1">
@@ -115,5 +115,5 @@
 			</div>
 		</div>
 	</body>
-<script type="text/javascript" src="scriptAct12.js"></script>
+	<script type="text/javascript" src="scriptAct12.js"></script>
 </html>

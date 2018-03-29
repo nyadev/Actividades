@@ -1,66 +1,58 @@
 <!DOCTYPE>
 <html>
-<head>
-	<meta charset="Utf-8"/>
-	<title>Actividad 7</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</head>
-<body onload="Instrucciones();">
-
+	<head>
+		<meta charset="Utf-8"/>
+		<title>Actividad 7</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	</head>
+	<body onload="Instrucciones();">
 <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
                 <h2>Actividad 7</h2>
-
                 <!--PANEL PARA UN NIVEL 1 DE UNA ACTIVIDAD 3-->
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">Nivel: <span id="nivel">1</span> </div>
+                            <div class="panel-heading">Atención sostenida y selectiva &nbsp; &nbsp; &nbsp; &nbsp; Nivel: <span id="nivel">1</span> </div>
                             <div class="panel panel-body">
                                 <!--tabla de controles para el nivel -->
                                 <center> 
                                     <table class="table-condensed">
                                         <tr>
-                                            <td> <button class="btn btn-success" 
-                                                        onclick="iniciarEjercicio();
-                                                         ">Iniciar</button></td>
-
+                                            <td> <button class="btn btn-success" onclick="iniciarEjercicio();" id="comienzo">Iniciar</button></td>
                                             <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
                                             <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
-
                                         </tr>
                                     </table> 
                                     <div id="estimuloBox" style="position:absolute; left: 400px; background: white; visibility: visible;">
                                         <font style="font-size: 4cm;"><p id="estimulo"></p></font>
                                         <br>
                                     </div>   
-
                                     <div id="resultadosBox" style="position: absolute; left:400px; top: 150px; background: white; visibility: hidden; ">
-                                                    <button class="btn btn-default" onclick="pasarVariables('RegistraResultados', 'curp,aciertos,errores,nivel,actividad')">Guardar resultados</button>
+                                        <input id="save-results" class="btn boton" type="button" value="Guardar resultados" onclick="saveResults()" style="display:none"> 
                                     </div>
 
                                     <div id="opcionesBox" style="position:relative; top:0px; top:0px;  background: white; visibility: hidden;">
-                                    <table class="table-condensed" style="font-size: 2cm;">
-                                        <tr>
-                                            <td><div id="n1" onclick="validar(1);">&nbsp;1&nbsp;</div></td>
-                                            <td><div id="n2" onclick="validar(2);">&nbsp;2&nbsp;</div></td>
-                                            <td><div id="n3" onclick="validar(3);">&nbsp;3&nbsp;</div></td>
-                                        </tr>
-                                        <tr>
-                                            <td><div id="n4" onclick="validar(4);">&nbsp;4&nbsp;</div></td>
-                                            <td><div id="n5" onclick="validar(5);">&nbsp;5&nbsp;</div></td>
-                                            <td><div id="n6" onclick="validar(6);">&nbsp;6&nbsp;</div></td>
-                                        </tr>
-                                        <tr>
-                                            <td><div id="n7" onclick="validar(7);">&nbsp;7&nbsp;</div></td>
-                                            <td><div id="n8" onclick="validar(8);">&nbsp;8&nbsp;</div></td>
-                                            <td><div id="n9" onclick="validar(9);">&nbsp;9&nbsp;</div></td>
-                                        </tr>
-                                    </table>
-                                    </div>
-                                    
+										<table class="table-condensed" style="font-size: 2cm;">
+											<tr>
+												<td><div id="n1" onclick="validar(1);">&nbsp;1&nbsp;</div></td>
+												<td><div id="n2" onclick="validar(2);">&nbsp;2&nbsp;</div></td>
+												<td><div id="n3" onclick="validar(3);">&nbsp;3&nbsp;</div></td>
+											</tr>
+											<tr>
+												<td><div id="n4" onclick="validar(4);">&nbsp;4&nbsp;</div></td>
+												<td><div id="n5" onclick="validar(5);">&nbsp;5&nbsp;</div></td>
+												<td><div id="n6" onclick="validar(6);">&nbsp;6&nbsp;</div></td>
+											</tr>
+											<tr>
+												<td><div id="n7" onclick="validar(7);">&nbsp;7&nbsp;</div></td>
+												<td><div id="n8" onclick="validar(8);">&nbsp;8&nbsp;</div></td>
+												<td><div id="n9" onclick="validar(9);">&nbsp;9&nbsp;</div></td>
+											</tr>
+										</table>
+                                    </div>                                   
                                 </center>
                             </div>
                         </div>
@@ -68,7 +60,7 @@
                     <!--PANEL PARA LAS INSTRUCCIONES-->
                     <div class="col-lg-4">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Instrucciones generales</div>
+                            <div class="panel-heading">Niveles</div>
                             <div class="panel panel-body">
                                 <div class="radio">
                                     <br><label>
@@ -90,20 +82,15 @@
                                     <br><label>
                                         <input type="radio" name="niveles" onclick="setNivel(5,300000);" value="5"/>
                                         Nivel 5: El estímulo durará 1 segundo y toda la tarea 300 segundos (5min.).
-                                    </label>
-                                    
-
+                                    </label>                                    
                                 </div>
-
                             </div>
-
                         </div>      
                     </div>
                 </div>
                 <!--TERMINA EL PANEL PARA NIVEL 1-->
-</div>
-</div>
-
-</body>
-<script type="text/javascript" src="scriptAct7.js"></script>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="scriptAct7.js"></script>
 </html>

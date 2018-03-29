@@ -13,21 +13,23 @@ var cantidadEspacios = 0; //Cantidad de veces que se puede dar espacio
 var cantidadLetras = 12;
 var letra1 ='E';//Guarda la letra previa a la actual
 var letra2 ='E';//Es la letra actual
+var radioBotones = document.getElementsByName("niveles");
 //Tiempos
 var retardo; //Variable que contiene el tiempo en que se muestra cada letra.
 var tiempoMustraResultados = 60000;//Tiempo que tarda para mostrar los resultados.
 var tiempoLetra = 5000;//Tiempo para que cambie de una letra a otra.
 //Funcion para obtener el número aleatorio
-    function numeroAleatoreo(){
-        var aleatorio = 0;        
-      aleatorio=Math.floor((Math.random()*lista.length));
-      return aleatorio;
-    }
+function numeroAleatoreo(){
+    var aleatorio = 0;        
+    aleatorio = Math.floor((Math.random()*lista.length));
+    return aleatorio;
+}
 
 function Instrucciones(){
    swal("Instrucciones",
     "Aparecerán letras aleatoriamente, el paciente deberá apretar la barra espaciadora cada vez que aparezca la letra “X”, siempre y cuando antes aparezca una “A”.");
 }	
+
 function mostrarlista(){
     letra1 = letra2;
     idElemento = numeroAleatoreo();
@@ -46,7 +48,7 @@ function mostrarlista(){
 }
 
 function validarEvento(evento){
-    var codigo=evento.keyCode;
+    var codigo = evento.keyCode;
     console.log("codigo de la tecla:"+ codigo);
     //Codigo 32 = barraEspaciadora
     //idElemento 21 = X
@@ -54,54 +56,58 @@ function validarEvento(evento){
     if(codigo === 32 && letra1 === 'A'&& letra2 === 'X' && cantidadEspacios === 0){
         cantidadEspacios = 1;
 		aciertos++;
-        document.getElementById("aciertos").innerHTML=aciertos;       
+        document.getElementById("aciertos").innerHTML = aciertos;       
         }
     else if(codigo === 32 && cantidadEspacios === 0){
 		cantidadEspacios = 1;
+		swal('Error');
         errores++;  
-        document.getElementById("errores").innerHTML=errores;   
+        document.getElementById("errores").innerHTML = errores;   
     }       
 }
 
 function iniciarSecuencia(){
 	mostrarEstimulo();
-	retardo=setInterval(function(){mostrarlista();},tiempoLetra);//5000 son 5s que se muestra una letra
+	retardo = setInterval(function(){mostrarlista();},tiempoLetra);//5000 son 5s que se muestra una letra
 }
 
 function iniciarEjercicio(){
-    idElemento=0;
-	aciertos=0;
-	errores=0;
-    contador=0;
+    idElemento = 0;
+	aciertos = 0;
+	errores = 0;
+    contador = 0;
     document.getElementById("estimulo").innerHTML = "";
 	document.getElementById("aciertos").innerHTML = aciertos;
 	document.getElementById("errores").innerHTML = errores;
     document.addEventListener("keydown",validarEvento);
     iniciarSecuencia();
-    
 }
+
 function teclado(datos){
-    //console.log(datos); Muestra todos las propiedades de la tecla apretada
-    
+    //console.log(datos); Muestra todos las propiedades de la tecla apretada   
 }
 
 function mostrarResultados(){
 	document.getElementById("estimuloBox").style.visibility = "hidden";
 	document.getElementById("opcionesBox").style.visibility = "hidden";
 	document.getElementById("resultadosBox").style.visibility = "visible";
+	document.getElementById("save-results").style.display = "table";
 }
+
 function mostrarOpciones(){
 	document.getElementById("estimuloBox").style.visibility = "hidden";
 	document.getElementById("opcionesBox").style.visibility = "visible";
 	document.getElementById("resultadosBox").style.visibility = "hidden";
-
 }
+
 function mostrarEstimulo(){
 	document.getElementById("estimuloBox").style.visibility = "visible";
 	document.getElementById("opcionesBox").style.visibility = "hidden";
-	document.getElementById("resultadosBox").style.visibility = "hidden";
-   
-   
+	document.getElementById("resultadosBox").style.visibility = "hidden";  
+	document.getElementById("comienzo").style.visibility = "hidden";
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = true;
+	}
 }
 
  function setNivel(unNivel, tiempo){
@@ -137,4 +143,17 @@ function mostrarEstimulo(){
         pagina += nomVec[i] + "=" + escape(eval(nomVec[i])) + "&";
     pagina = pagina.substring(0, pagina.length - 1);
     location.href = pagina;
+}
+
+function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + aciertos, "Errores: " + errores);
+    document.getElementById("save-results").style.display = "none";
+    document.getElementById("aciertos").innerHTML = 0;
+    document.getElementById("errores").innerHTML = 0;
+	document.getElementById("comienzo").style.visibility = "visible"; 
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = false;
+	}
+    return;
 }

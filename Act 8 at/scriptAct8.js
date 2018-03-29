@@ -5,19 +5,19 @@ var errores = 0;
 var nivel = 1;
 var actividad = 8;//numero de la actividad
 var verificarX = 0;
-
 //Variables de la actividad
 var lista = new Array('A','B','C','D','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','V','W','X','Y','Z');
 var idElemento = 0;
 var contador = 0;
 var cantidadLetras = 12;
 var cantidadEspacios = 0;
-var msg='';
+var msg = '';
 var listaRespuestas = [];
+var radioBotones = document.getElementsByName("niveles");
 //Tiempos
 var retardo; //Variable que contiene el tiempo en que se muestra cada letra.
-var tiempoMustraResultados=60000;//Tiempo que tarda para mostrar los resultados.
-var tiempoLetra=5000;//Tiempo para que cambie de una letra a otra.
+var tiempoMustraResultados = 60000;//Tiempo que tarda para mostrar los resultados.
+var tiempoLetra = 5000;//Tiempo para que cambie de una letra a otra.
 
 //Funcion para obtener el número aleatorio
 function numeroAleatoreo(){
@@ -38,6 +38,7 @@ function validarEvento(evento){
     //idElemento 21 = X
 	if(codigo === 32 && cantidadEspacios === 0){
 		if(idElemento === 21){
+			swal('Error');
 			errores++;    
 			document.getElementById("errores").innerHTML = errores;	
 			cantidadEspacios = 1;		
@@ -63,7 +64,7 @@ function iniciarEjercicio(){
     contador = 0;
 	cantidadEspacios = 0;
 	verificarX = 0;
-	listaRespuestas =[];
+	listaRespuestas = [];
     document.getElementById("estimulo").innerHTML = "";
 	document.getElementById("aciertos").innerHTML = aciertos;
 	document.getElementById("errores").innerHTML = errores;
@@ -114,19 +115,23 @@ function mostrarResultados(){
 	document.getElementById("estimuloBox").style.visibility = "hidden";
 	document.getElementById("opcionesBox").style.visibility = "hidden";
 	document.getElementById("resultadosBox").style.visibility = "visible";
+	document.getElementById("save-results").style.display = "table";
 }
+
 function mostrarOpciones(){
 	document.getElementById("estimuloBox").style.visibility = "hidden";
 	document.getElementById("opcionesBox").style.visibility = "visible";
 	document.getElementById("resultadosBox").style.visibility = "hidden";
-
 }
+
 function mostrarEstimulo(){
 	document.getElementById("estimuloBox").style.visibility = "visible";
 	document.getElementById("opcionesBox").style.visibility = "hidden";
-	document.getElementById("resultadosBox").style.visibility = "hidden";
-   
-   
+	document.getElementById("resultadosBox").style.visibility = "hidden"; 
+	document.getElementById("comienzo").style.visibility = "hidden";
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = true;
+	}	
 }
 
  function setNivel(unNivel, tiempo){
@@ -162,4 +167,17 @@ function mostrarEstimulo(){
         pagina += nomVec[i] + "=" + escape(eval(nomVec[i])) + "&";
     pagina = pagina.substring(0, pagina.length - 1);
     location.href = pagina;
+}
+
+function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + aciertos, "Errores: " + errores);
+    document.getElementById("save-results").style.display = "none";
+    document.getElementById("aciertos").innerHTML = 0;
+    document.getElementById("errores").innerHTML = 0;
+	document.getElementById("comienzo").style.visibility = "visible"; 
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = false;
+	}
+    return;
 }

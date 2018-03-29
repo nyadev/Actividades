@@ -1,14 +1,12 @@
 <!DOCTYPE>
 <html>
-<head>
-	<meta charset="Utf-8"/>
-	<title>Actividad 1</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	
-</head>
+	<head>
+		<meta charset="Utf-8"/>
+		<title>Actividad 1</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	</head>
 <body onload="Instrucciones();">
-
 <!-- Page Content -->
         <div id="page-wrapper"> 
             <div class="container-fluid">
@@ -17,7 +15,7 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">Atención sostenida y selectiva</div>
+                            <div class="panel-heading">Atención sostenida y selectiva &nbsp; &nbsp; &nbsp; &nbsp; Nivel: <span id="nivel">1</span> </div>
                             <div class="panel panel-body">
                                 <!--tabla de controles para el nivel -->
                                 <center> 
@@ -37,6 +35,7 @@
 											<br>
 										</tr>   
                                     </table> 
+									<input id="save-results" class="btn boton" type="button" value="Guardar resultados" onclick="saveResults()" style="display:none"> 
                                 </center>
                             </div>
                         </div>
@@ -61,10 +60,12 @@
                                         <input type="radio" name="niveles" onclick="setNivel(3);" value="3"/>
                                         Nivel 3: El estímulo durará 3 segundos, y toda la tarea 180 segundos.
                                     </label>
+									<br>
 									<label>
                                         <input type="radio" name="niveles" onclick="setNivel(4);" value="4"/>
                                         Nivel 4: El estímulo durará 3 segundos, y toda la tarea 240 segundos.
                                     </label>
+									<br>
 									<label>
                                         <input type="radio" name="niveles" onclick="setNivel(5);" value="5"/>
                                         Nivel 5: El estímulo durará 2 segundos, y toda la tarea 300 segundos.
@@ -74,6 +75,8 @@
                         </div>      
                     </div>
                 </div>
-</body>
-<script type="text/javascript" src="scriptAct1.js"></script>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="scriptAct1.js"></script>
 </html>

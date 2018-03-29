@@ -14,6 +14,8 @@ var listaCuadros = [document.getElementById("E0"), document.getElementById("E2")
 var listaCuadros2 = [document.getElementById("E30"), document.getElementById("E32"), document.getElementById("E35"), document.getElementById("E37"), 
 					document.getElementById("E39"), document.getElementById("E44"), document.getElementById("E48"), document.getElementById("E51"),
 					document.getElementById("E53")];
+var radioBotones = document.getElementsByName("niveles");
+var radioBotones2 = document.getElementsByName("fases");
 var listaNumeros = new Array('E0','E2','E5','E7','E9','E14','E18','E21','E23');
 var idElemento = 0;
 var numMaximo = 2;//Es la cantidad de numeros que apareceran, por defaul se establecen 2, posteriormente este numero se modifica de acuerdo al nivel
@@ -28,6 +30,7 @@ function Instrucciones(){
 
 function setFase(unaFase){
 	fase = unaFase;
+	document.getElementById("fase").innerHTML = fase;
 	evaluarFase();
 }
 
@@ -66,7 +69,6 @@ document.getElementById(listaNumeros[idElemento]).style.background = 'rgb(34, 22
     if(idElemento === unLimite){
         console.log("tenemos que parar");
         clearInterval(retardo);
-
     }
 }
 
@@ -77,22 +79,22 @@ function mostrarNumero(unLimite){
     if(idElemento === unLimite){
         console.log("tenemos que parar");
         clearInterval(retardo);
-
     }
 }
+
 function validarRespuesta(opcion){
-    
     if(listaNumeros[noClick] === opcion){
         aciertos++;
-        console.log("En lista:" + listaNumeros[noClick] + " mi opcion:" + opcion  + "Numero de aciertos:" + aciertos);
-       document.getElementById("pista1").currentTime = 0;
+        console.log("En lista:" + listaNumeros[noClick] + " mi opcion:" + opcion + "Numero de aciertos:" + aciertos);
+        document.getElementById("pista1").currentTime = 0;
         document.getElementById("pista1").play();
         document.getElementById("aciertos").innerHTML = aciertos;
 		noClick++;
     }
     else{
+		swal('Error');
         errores++;
-        console.log("En lista:" + listaNumeros[noClick] +" mi opcion:" +opcion + "Numero de ERROR:" + errores);
+        console.log("En lista:" + listaNumeros[noClick] +" mi opcion:" + opcion + "Numero de ERROR:" + errores);
         document.getElementById("errores").innerHTML = errores;
         document.getElementById("pista2").play();
     }
@@ -164,6 +166,7 @@ function mostrarResultados(){
 	document.getElementById("estimuloBox").style.visibility = "hidden";
 	document.getElementById("opcionesBox").style.visibility = "hidden";
 	document.getElementById("resultadosBox").style.visibility = "visible";
+	document.getElementById("save-results").style.display = "table";
 }
 
 function mostrarOpciones(){
@@ -176,6 +179,13 @@ function mostrarEstimulo(){
 	document.getElementById("estimuloBox").style.visibility = "visible";
 	document.getElementById("opcionesBox").style.visibility = "hidden";
 	document.getElementById("resultadosBox").style.visibility = "hidden";
+	document.getElementById("comienzo").style.visibility = "hidden";
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = true;
+	}
+	for(var i = 0; i<radioBotones2.length; i++){
+		radioBotones2[i].disabled = true;
+	}
     retardo = setInterval(function(){mostrarCuadros(numMaximo);},1000);
 }
 
@@ -194,4 +204,20 @@ function mostrarEstimulo(){
     pagina = pagina.substring(0, pagina.length - 1);
     location.href = pagina;
 	}
+}
+
+function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + aciertos, "Errores: " + errores);
+    document.getElementById("save-results").style.display = "none";
+    document.getElementById("aciertos").innerHTML = 0;
+    document.getElementById("errores").innerHTML = 0;
+	document.getElementById("comienzo").style.visibility = "visible"; 
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = false;
+	}
+	for(var i = 0; i<radioBotones2.length; i++){
+		radioBotones2[i].disabled = false;
+	}
+    return;
 }

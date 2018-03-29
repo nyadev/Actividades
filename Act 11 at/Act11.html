@@ -34,23 +34,17 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">Nivel: <span id="nivel">1</span> </div>
+                            <div class="panel-heading">Atención sostenida, memoria inmediata y habilidades visoespaciales &nbsp; &nbsp; &nbsp; &nbsp; Fase: <span id="fase">1</span> &nbsp; &nbsp; &nbsp; &nbsp; Nivel: <span id="nivel">1</span> </div>
                             <div class="panel panel-body">
                                 <!--tabla de controles para el nivel -->
                                 <center> 
                                     <table class="table-condensed">
                                         <tr>
-                                            <td> <button class="btn btn-success" onclick="iniciarEjercicio();">Iniciar</button></td>
+                                            <td> <button class="btn btn-success" onclick="iniciarEjercicio();" id="comienzo">Iniciar</button></td>
                                             <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
                                             <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
                                         </tr>
                                     </table> 
-                                    <!--Div que muestra los estimulos
-                                    <div id="estimuloBox" style="position:absolute; left: 400px; background: white; visibility: visible;">
-                                        <font style="font-size: 4cm;"><p id="estimulo"></p></font>
-                                        <br>
-                                    </div> 
-                                    -->
                                     <div id="estimuloBox" style="position: relative; background: white; visibility:visible;">
 										<table cellspacing="100" border="1">
 											<tr cellspacing="0">
@@ -72,7 +66,7 @@
                                     </div>  
 									<!--Div que muestra los resultados-->
                                     <div id="resultadosBox" style="position: absolute; left:400px; top: 150px; background: white; visibility: hidden; ">
-                                                    <button class="btn btn-default" onclick="pasarVariables('RegistraResultados', 'curp,aciertos,errores,nivel,actividad')">Guardar resultados</button>
+                                        <input id="save-results" class="btn boton" type="button" value="Guardar resultados" onclick="saveResults()" style="display:none"> 
                                     </div>
                                     <div id="opcionesBox" style="position:relative;  background: white; visibility: hidden;">
 										<table cellspacing="100" border="1">
@@ -149,18 +143,14 @@
                                         <input type="radio" name="niveles" onclick="setNivel(8,3500,3);"  value="4"/>
                                         Nivel 8, Tabla de 3x3, tres estímulos.
                                     </label>
-
                                 </div>
-
                             </div>
-
                         </div>      
                     </div>
                 </div>
                 <!--TERMINA EL PANEL PARA NIVEL 1-->
-</div>
-</div>
-
-</body>
-<script type="text/javascript" src="scriptAct11.js"></script>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="scriptAct11.js"></script>
 </html>
