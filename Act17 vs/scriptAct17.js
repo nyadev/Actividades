@@ -95,6 +95,7 @@ function mostrarResultados(){
 	document.getElementById("estimuloBox").style.visibility = "hidden";
 	document.getElementById("opcionesBox").style.visibility = "hidden";
 	document.getElementById("resultadosBox").style.visibility = "visible";
+	document.getElementById("save-results").style.display = "table";
 }
 
 function mostrarOpciones(){
@@ -109,6 +110,7 @@ function mostrarOpciones(){
 }
 
 function mostrarEstimulo(){
+	document.getElementById("comienzo").style.visibility = "hidden";
 	document.getElementById("estimuloBox").style.visibility = "visible";
 	document.getElementById("opcionesBox").style.visibility = "hidden";
 	document.getElementById("resultadosBox").style.visibility = "hidden";
@@ -461,6 +463,7 @@ function validarIguales(respuesta){
 		iniciarSecuencia();
 	}
 	else{
+		swal('Error, las figuras no coinciden');
 		errores++;
 		document.getElementById("errores").innerHTML = errores;
 	    iniciarSecuencia();
@@ -472,4 +475,17 @@ function Instrucciones(){
 	"Instrucciones",
 	"Aparecerán cinco figuras, el paciente deberá seleccionar la que es similar a la primera."
 	);
+}
+
+function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + aciertos, "Errores: " + errores);
+    document.getElementById("save-results").style.display = "none";
+	document.getElementById("comienzo").style.visibility = "visible";
+    document.getElementById("aciertos").innerHTML = 0;
+    document.getElementById("errores").innerHTML = 0;
+	for(var i = 0; i<radioBotones2.length; i++){
+		radioBotones2[i].disabled = false;
+	}
+    return;
 }

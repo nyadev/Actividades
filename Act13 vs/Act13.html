@@ -1,24 +1,21 @@
 <!DOCTYPE>
 <html>
-<head>
-	<meta charset="Utf-8"/>
-	<title>Actividad 13</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	
-</head>
-<body onload="Instrucciones();">
-
+	<head>
+		<meta charset="Utf-8"/>
+		<title>Actividad 13</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	</head>
+	<body onload="Instrucciones();">
 <!-- Page Content -->
         <div id="page-wrapper"> 
             <div class="container-fluid">
                 <h2>Actividad 13</h2>
-
                 <!--PANEL PARA UN NIVEL 1 DE UNA ACTIVIDAD 3-->
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">Figura-Fondo</div>
+                            <div class="panel-heading">Figura-Fondo &nbsp; &nbsp; &nbsp; &nbsp; Fase: <span id="fase">1</span> &nbsp; &nbsp; &nbsp; &nbsp; Nivel: <span id="nivel">1</span></div>
                             <div class="panel panel-body">
                                 <!--tabla de controles para el nivel -->
                                 <center> 
@@ -29,7 +26,6 @@
                                             <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
                                         </tr>
                                     </table> 
-								
 									<table>
 										<tr>
 											<br>
@@ -48,8 +44,10 @@
 											<td><div id="div4" style="visibility:hidden" onclick="validarResultados(4);" height="125px"><img src="" height="120px" id="imagen4"></div></td>
 											<td><div id="div5" style="visibility:hidden" onclick="validarResultados(5);" height="125px"><img src="" height="120px" id="imagen5"></div></td>
 										</tr>    
-                                    </table>
-                                     
+                                    </table> 
+									<div id="resultadosBox" style="position: absolute; left:46%; top: 36%; background: white; visibility: hidden;">
+                                        <input id="save-results" class="btn boton" type="button" value="Guardar resultados" onclick="saveResults()" style="display:none"> 
+									</div>
                                 </center>
                             </div>
                         </div>
@@ -94,18 +92,8 @@
                         </div>      
                     </div>
                 </div>
-</body>
-<script type="text/javascript" src="scriptAct13.js"></script>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="scriptAct13.js"></script>
 </html>
-
-
-<!--
-<i class="fab fa-fort-awesome-alt"></i>
-<i class="far fa-futbol"></i>
-<i class="far fa-keyboard"></i>
-<i class="fab fa-react"></i>
-<i class="fas fa-tree"></i>
-<i class="fas fa-space-shuttle"></i>
-<i class="far fa-gem"></i>
-<i class="fas fa-flask"></i> f0c3
--->

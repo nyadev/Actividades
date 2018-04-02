@@ -127,6 +127,7 @@ var ejercicios = [ejecutarEjercicio1, ejecutarEjercicio2, ejecutarEjercicio3];
 
 function setFase(unaFase){
 	fase = unaFase;
+	document.getElementById("fase").innerHTML = fase;
 }
 
 function llenarArrayRespuestasCorrectas(){
@@ -175,8 +176,10 @@ function llenarArrayRespuestasCorrectas(){
 		alternarColor();
 	}
 }
+
 function setNivel(unNivel){
     nivel = unNivel;
+	document.getElementById("nivel").innerHTML = nivel;
 }
 
 function cambiarListaPosiciones(posicion){
@@ -389,6 +392,7 @@ function realizarEjercicio(){
 	ejercicioARealizar = fase-1;
 	ejercicios[ejercicioARealizar]();
 }
+
 function alternarColor(){
 	if(colorCirculo < 6){
 		colorCirculo++;
@@ -396,6 +400,7 @@ function alternarColor(){
 		colorCirculo = 1;
 	}
 }
+
 function validarResultados(respuesta){
 	if(fase === 1){
 		if (respuestaCorrecta === respuesta-1){
@@ -408,6 +413,7 @@ function validarResultados(respuesta){
 				realizarEjercicio();
 		}
 		else{
+			swal('Error');
 			errores++;
 			document.getElementById("errores").innerHTML = errores;
 		}
@@ -436,6 +442,7 @@ function validarResultados(respuesta){
 			realizarEjercicio();
 		}
 		if (contador === 0){
+			swal('Error');
 			errores++;
 			document.getElementById("errores").innerHTML = errores;
 		}
@@ -453,6 +460,7 @@ function validarResultados(respuesta){
 			numeroRespuesta++;
 			alternarColor();
 		}else{
+			swal('Error');
 			errores++;
 			document.getElementById("errores").innerHTML = errores;
 		}
@@ -464,7 +472,6 @@ function validarResultados(respuesta){
 	}
 }
 
-
 function habilitarDeshabilitarElemento(habilitar,numeroDeElementos){
 	for(i = 0; i < 24; i++){
 		divsMuestra[i].style.visibility = "hidden";
@@ -475,12 +482,6 @@ function habilitarDeshabilitarElemento(habilitar,numeroDeElementos){
 			imagenesMuestra[i].src = "";
 			imagenesSolucion[i].src = "";
 		}
-		document.getElementById("nivel1").disabled = false;
-		document.getElementById("nivel2").disabled = false;
-		document.getElementById("nivel3").disabled = false;
-		document.getElementById("fase1").disabled = false;
-		document.getElementById("fase2").disabled = false;
-		document.getElementById("fase3").disabled = false;
 	}else if(habilitar === 1){
 		if(numeroDeElementos === 2){	
 			divsMuestra[2].style.visibility = "visible";
@@ -520,6 +521,8 @@ function habilitarDeshabilitarElemento(habilitar,numeroDeElementos){
 function finalizarActividad(){
 	habilitarDeshabilitarElemento(0,elementos);
 	colorCirculo = 1;
+	document.getElementById("save-results").style.display = "table";
+	document.getElementById("espacio").style.visibility = "hidden";
 }
 
 function iniciarEjercicio(){
@@ -533,6 +536,23 @@ function iniciarEjercicio(){
 	realizarEjercicio();
 	document.getElementById("aciertos").innerHTML = aciertos;
 	document.getElementById("errores").innerHTML = errores;
+	document.getElementById("comienzo").style.visibility = "hidden";
+	document.getElementById("espacio").style.visibility = "visible";
+}
 
+function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + aciertos, "Errores: " + errores);
+    document.getElementById("save-results").style.display = "none";
+	document.getElementById("comienzo").style.visibility = "visible";
+    document.getElementById("aciertos").innerHTML = 0;
+    document.getElementById("errores").innerHTML = 0;
+	document.getElementById("nivel1").disabled = false;
+	document.getElementById("nivel2").disabled = false;
+	document.getElementById("nivel3").disabled = false;
+	document.getElementById("fase1").disabled = false;
+	document.getElementById("fase2").disabled = false;
+	document.getElementById("fase3").disabled = false;
+    return;
 }
 

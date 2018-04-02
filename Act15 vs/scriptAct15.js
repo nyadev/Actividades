@@ -40,6 +40,8 @@ var camino15 = [0, 1, 7, 13, 14, 15, 9, 10, 11, 17, 23];
 var caminosRespuesta = [camino1, camino2, camino3, camino4, camino5, camino6, camino7, camino8, camino9, camino10, camino11, camino12, camino13, camino14, camino15];
 var arrayRespuestasCorrectas;
 
+var radioBotones2 = document.getElementsByName("fases");
+
 function caminoAleatorio(listaCaminos){
 	var aleatorio = Math.floor((Math.random()*listaCaminos.length));
 	return aleatorio;
@@ -66,6 +68,7 @@ function mover(posicionAnterior, nuevaPosicion){
 
 function setFase(unaFase){
 	fase = unaFase;
+	document.getElementById("fase").innerHTML = fase;
 }
 
 function Instrucciones(){
@@ -104,6 +107,9 @@ function iniciarEjercicio(){
 	document.getElementById("errores").innerHTML = errores;
 	document.getElementById("comienzo").style.visibility = "hidden";
 	document.getElementById("tabla").style.visibility = "visible";
+	for(var i = 0; i < radioBotones2.length; i++){
+		radioBotones2[i].disabled = true;
+	}
 }
 
 function validarMovimiento(diferencia){
@@ -120,6 +126,7 @@ function validarMovimiento(diferencia){
 			finalizarEjercicio(1);
 		}
 	}else{
+	swal('Error, este movimiento no sigue el camino indicado');
 		errores++;
 		document.getElementById("errores").innerHTML = errores;
 		if(errores === 10){
@@ -165,12 +172,25 @@ function finalizarEjercicio(num){
 	if (num === 0){
 		document.getElementById("tabla").style.visibility = "hidden";
 		document.getElementById("mensaje").style.visibility = "hidden";
-		document.getElementById("comienzo").style.visibility = "visible";
+		document.getElementById("save-results").style.display = "table";
 	} else{
 		document.getElementById("tabla").style.visibility = "hidden";
 		document.getElementById("mensaje").style.visibility = "hidden";
-		document.getElementById("comienzo").style.visibility = "visible";
+		document.getElementById("save-results").style.display = "table";
 	}
+}
+
+function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + aciertos, "Errores: " + errores);
+    document.getElementById("save-results").style.display = "none";
+	document.getElementById("comienzo").style.visibility = "visible";
+    document.getElementById("aciertos").innerHTML = 0;
+    document.getElementById("errores").innerHTML = 0;
+	for(var i = 0; i<radioBotones2.length; i++){
+		radioBotones2[i].disabled = false;
+	}
+    return;
 }
 
 

@@ -2,8 +2,8 @@ function Instrucciones(){
    swal("Instrucciones",
     "Se muestra un conjunto de imágenes sobrepuestas de donde el paciente identificará las diferentes imágenes que la componen.");
 }
-var nivel=1;
-var fase=1;
+var nivel = 1;
+var fase = 1;
 var aciertos = 0;
 var errores = 0;
 var cantidad = 3;
@@ -16,19 +16,24 @@ var imagenesFase2Nivel1 = new Array('Niv1Fase2-1.png', 'Niv1Fase2-2.png', 'Niv1F
 var imagenesFase2Nivel2 = new Array('Niv2Fase2-1.png', 'Niv2Fase2-2.png', 'Niv2Fase2-3.png', 'Niv2Fase2-4.png', 'Niv2Fase2-5.png', 'Niv2Fase2-6.png');
 var imagenesFase2Nivel3 = new Array('', '', '', '', '');
 
+var radioBotones = document.getElementsByName("niveles");
+var radioBotones2 = document.getElementsByName("fases");
+
 var listaSeleccionada = imagenesFase1Nivel1;
 var listaPosiciones = new Array(1, 2, 3, 4, 5);
 
 function setFase(unaFase){
 	fase=unaFase;
+	document.getElementById("fase").innerHTML = fase;
 }
 
 function setNivel(unNivel){
     nivel=unNivel;
+	document.getElementById("nivel").innerHTML = nivel;
 }
 
 function imagenOPosicionAleatoria(listaImagenesoPosiciones){
-	var aleatorio=Math.floor((Math.random()*listaImagenesoPosiciones.length));
+	var aleatorio = Math.floor((Math.random()*listaImagenesoPosiciones.length));
 	return aleatorio;
 }
 
@@ -80,6 +85,13 @@ function iniciarEjercicio(){
 	document.getElementById("div3").style.visibility="visible";
 	document.getElementById("div4").style.visibility="visible";
 	document.getElementById("div5").style.visibility="visible";
+	document.getElementById("comienzo").style.visibility = "hidden";
+	for(var i = 0; i < radioBotones.length; i++){
+		radioBotones[i].disabled = true;
+	}
+	for(var i = 0; i < radioBotones2.length; i++){
+		radioBotones2[i].disabled = true;
+	}
 }
 
 function realizarEjercicio(){
@@ -152,6 +164,7 @@ function validarResultados(respuesta){
 	}
 	
 	if (contador === 0){
+		swal('Error, la figura no corresponde al conjunto');
 		errores++;
 		document.getElementById("errores").innerHTML=errores;
 	}else{
@@ -198,5 +211,23 @@ function finalizarActividad(){
 	document.getElementById("imagen3").src = "";
 	document.getElementById("imagen4").src = "";
 	document.getElementById("imagen5").src = "";
+	document.getElementById("resultadosBox").style.visibility = "visible";
+	document.getElementById("save-results").style.display = "table";
+}
+
+function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + aciertos, "Errores: " + errores);
+    document.getElementById("save-results").style.display = "none";
+    document.getElementById("aciertos").innerHTML = 0;
+    document.getElementById("errores").innerHTML = 0;
+	document.getElementById("comienzo").style.visibility = "visible"; 
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = false;
+	}
+	for(var i = 0; i<radioBotones2.length; i++){
+		radioBotones2[i].disabled = false;
+	}
+    return;
 }
 
