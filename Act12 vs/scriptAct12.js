@@ -9,7 +9,6 @@ var nivel = 1;
 var cantidad = 6;
 var respuestaCorrecta;
 var listaPosiciones = new Array(1,2,3,4);
-
 var imagenesCompletasNivel1 = new Array('Niv1Completo1.png', 'Niv1Completo2.png', 'Niv1Completo3.png', 'Niv1Completo4.png', 'Niv1Completo5.png', 'Niv1Completo6.png', 'Niv1Completo7.png', 'Niv1Completo8.png', 'Niv1Completo9.png');
 var imagenesCompletasNivel2 = new Array('Niv2Completo1.png', 'Niv2Completo2.png', 'Niv2Completo3.png', 'Niv2Completo4.png', 'Niv2Completo5.png', 'Niv2Completo6.png', 'Niv2Completo7.png', 'Niv2Completo8.png', 'Niv2Completo9.png', 'Niv2Completo10.png', 'Niv2Completo11.png', 'Niv2Completo12.png', 'Niv2Completo13.png');
 var imagenesCompletasNivel3 = new Array('Niv3Completo1.png', 'Niv3Completo2.png', 'Niv3Completo3.png', 'Niv3Completo4.png',);
@@ -18,6 +17,7 @@ var imagenesIncompletasNivel1 = new Array('Niv1Incompleto1.png', 'Niv1Incompleto
 var imagenesIncompletasNivel2 = new Array('Niv2Incompleto1.png', 'Niv2Incompleto2.png', 'Niv2Incompleto3.png', 'Niv2Incompleto4.png', 'Niv2Incompleto5.png', 'Niv2Incompleto6.png', 'Niv2Incompleto7.png', 'Niv2Incompleto8.png', 'Niv2Incompleto9.png', 'Niv2Incompleto10.png', 'Niv2Incompleto11.png', 'Niv2Incompleto12.png', 'Niv2Incompleto13.png');
 var imagenesIncompletasNivel3 = new Array('Niv3Incompleto1.png', 'Niv3Incompleto2.png', 'Niv3Incompleto3.png', 'Niv3Incompleto4.png',);
 var imagenesIncompletasNivel4 = new Array();
+var radioBotones = document.getElementsByName("niveles");
 
 var listaSeleccionada = imagenesIncompletasNivel1;
 var listaSeleccionada2 = imagenesCompletasNivel1;
@@ -28,36 +28,37 @@ function imagenOPosicionAleatoria(listaImagenesoPosiciones){
 }
 
 function buscarImagen(listaImagenes, nombreImagen){
-	var indexLista=0;
-	for(i=0; i<listaImagenes.length; i++){
+	var indexLista = 0;
+	for(i = 0; i<listaImagenes.length; i++){
 		if(nombreImagen.equalsIgnoreCase(listaImagenes[i])){
-			indexLista=i;
+			indexLista = i;
 		}
 	}
 	return indexLista;
 }
 
 function setNivel(unNivel){
-     if(unNivel===1){
+     if(unNivel === 1){
         nivel=unNivel;
 		listaSeleccionada=imagenesIncompletasNivel1;
 		listaSeleccionada2=imagenesCompletasNivel1;
     }
-    if(unNivel===2){
+    if(unNivel === 2){
         nivel=unNivel;
 		listaSeleccionada=imagenesIncompletasNivel2;
 		listaSeleccionada2=imagenesCompletasNivel2;
     }
-    if(unNivel===3){
+    if(unNivel === 3){
         nivel=unNivel;
 		listaSeleccionada=imagenesIncompletasNivel3;
 		listaSeleccionada2=imagenesCompletasNivel3;
     }
-    if(unNivel===4){
+    if(unNivel === 4){
         nivel=unNivel;
 		listaSeleccionada=imagenesIncompletasNivel4;
 		listaSeleccionada2=imagenesCompletasNivel4;
-    }   
+    }  
+	document.getElementById("nivel").innerHTML = nivel;	
 }
 
 function iniciarEjercicio(){
@@ -72,6 +73,10 @@ function iniciarEjercicio(){
 	document.getElementById("div2").style.visibility="visible";
 	document.getElementById("div3").style.visibility="visible";
 	document.getElementById("div4").style.visibility="visible";
+	document.getElementById("comienzo").style.visibility = "hidden"; 
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = true;
+	}
 }
 
 function asignarImagenesRestantes(indexUsado1, indexUsado2, indexUsado3){
@@ -132,6 +137,7 @@ function validarResultados(respuesta){
 		aciertos++;
 		document.getElementById("aciertos").innerHTML=aciertos;
 	} else{
+		swal('Error, la figura no coincide con la muestra');
 		errores++;
 		document.getElementById("errores").innerHTML=errores;
 	}
@@ -154,4 +160,18 @@ function finalizarActividad(){
 	document.getElementById("imagen2").src = "";
 	document.getElementById("imagen3").src = "";
 	document.getElementById("imagen4").src = "";
+	document.getElementById("save-results").style.display = "table";
+}
+
+function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + aciertos, "Errores: " + errores);
+    document.getElementById("save-results").style.display = "none";
+    document.getElementById("aciertos").innerHTML = 0;
+    document.getElementById("errores").innerHTML = 0;
+	document.getElementById("comienzo").style.visibility = "visible"; 
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = false;
+	}
+    return;
 }

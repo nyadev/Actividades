@@ -21,6 +21,7 @@ var ctx3 = canvas3.getContext('2d');
 var ctx4 = canvas4.getContext('2d');
 var imagen_contorno = ['images/verticales/image_1vh.png', 'images/verticales/image1_1vh.png', '1.png'];
 var imagen_contorno1 = ['images/verticales/image_2vh.png', 'images/verticales/image1_2vh.png', '1.png'];
+var radioBotones = document.getElementsByName("niveles");
 var idFig1;
 var idFig2;
 var idFig3;
@@ -45,20 +46,23 @@ function instrucciones(){
 
 function iniciarEjercicio(){
 	retardo = setTimeout(function(){mostrarResultados();},tiempoTotal);
+    document.getElementById("comienzo").style.visibility = "hidden";
 	iniciarSecuencia();
 	aciertos = 0;
 	errores = 0;
 	document.getElementById("aciertos").innerHTML=aciertos;
 	document.getElementById("errores").innerHTML=errores;
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = true;
+	}
 }
 
 function iniciarSecuencia(){
 	mostrarEstimulo();
-     cont = 0;
-     cont2 = 0;
-     cont3 = 0;
-     cont4 = 0;
-	
+	cont = 0;
+    cont2 = 0;
+    cont3 = 0;
+    cont4 = 0;
 }
 
 function mostrarEstimulo(){
@@ -66,8 +70,6 @@ function mostrarEstimulo(){
 	//document.getElementById("opcionesBox").style.visibility="hidden";
 	document.getElementById("resultadosBox").style.visibility="hidden";
     dibujarImagen();
-    
-
 }
 //Funcion para obtener el número aleatoreo de la figura    
 function numeroAleatoreoPosicion(){
@@ -88,8 +90,8 @@ function numeroAleatoreoFigura(num1, num2){
 function mostrarResultados(){
     clearInterval(retardoOpciones);
     document.getElementById("estimuloBox").style.visibility = "hidden";
-    //document.getElementById("opcionesBox").style.visibility = "hidden";
     document.getElementById("resultadosBox").style.visibility = "visible";
+	document.getElementById("save-results").style.display = "table";
 }
 
 //idFig1=numeroAleatoreoFigura();
@@ -155,7 +157,7 @@ function dibujarImagen(){
 function contar1(){
     cont++;
     if(cont === 2){
-        alert("No puedes elegir la misma imagen 2 veces");
+        swal("No puedes elegir la misma imagen 2 veces");
         cont = 1;
     }
     if(cont === 1 && cont2 === 1){
@@ -170,7 +172,7 @@ function contar1(){
 function contar2(){
     cont2++;
     if(cont2 === 2){
-        alert("No puedes elegir la misma imagen 2 veces");
+        swal("No puedes elegir la misma imagen 2 veces");
         cont2 = 1;
     }
     if(cont2 === 1 && cont === 1){
@@ -185,7 +187,7 @@ function contar2(){
 function contar3(){
     cont3++;
     if(cont3 === 2){
-        alert("No puedes elegir la misma imagen 2 veces");
+        swal("No puedes elegir la misma imagen 2 veces");
         cont3 = 1;
     }
     if(cont3 === 1 && cont === 1){
@@ -200,7 +202,7 @@ function contar3(){
 function contar4(){
     cont4++;
     if(cont4 === 2){
-       alert("No puedes elegir la misma imagen 2 veces");
+       swal("No puedes elegir la misma imagen 2 veces");
         cont3 = 1;
     }
     if(cont === 1 && cont4 === 1){
@@ -220,6 +222,7 @@ function verifica1(){
         iniciarSecuencia();
     }
     else{
+		swal("Error");
         errores++;
 		document.getElementById("errores").innerHTML = errores;
         //Volvemos a iniciar la secuencia
@@ -235,12 +238,14 @@ function verifica2(){
         iniciarSecuencia();
     }
     else{
+		swal("Error");
         errores++;
 		document.getElementById("errores").innerHTML = errores;
         //Volvemos a iniciar la secuencia
         iniciarSecuencia();
     }
 }
+
 function verifica3(){
     if(idFig1 === idFig4){
         aciertos++;
@@ -249,12 +254,14 @@ function verifica3(){
         iniciarSecuencia();
     }
     else{
+		swal("Error");
         errores++;  
 		document.getElementById("errores").innerHTML = errores;
         //Volvemos a iniciar la secuencia
         iniciarSecuencia();
     }
 }
+
 function verifica4(){
     if(idFig2 === idFig3){
         aciertos++;
@@ -263,6 +270,7 @@ function verifica4(){
         iniciarSecuencia();
     }
     else{
+		swal("Error");
         errores++;
 		document.getElementById("errores").innerHTML = errores;
         //Volvemos a iniciar la secuencia
@@ -278,6 +286,7 @@ function verifica5(){
         iniciarSecuencia();
     }
     else{
+		swal("Error");
         errores++;
 		document.getElementById("errores").innerHTML = errores;
         //Volvemos a iniciar la secuencia
@@ -293,6 +302,7 @@ function verifica6(){
         iniciarSecuencia();
     }
     else{
+		swal("Error");
         errores++;
 		document.getElementById("errores").innerHTML = errores;
         //Volvemos a iniciar la secuencia
@@ -300,9 +310,9 @@ function verifica6(){
     }
 }
 
-
 function setNivel(unNivel){
 	nivel = unNivel;
+	document.getElementById("nivel").innerHTML = nivel;
     if(unNivel === 1){
         imagen_contorno = ['images/verticales/image_1vh.png', 'images/verticales/image1_1vh.png', '1.png'];
         imagen_contorno1 = ['images/verticales/image_2vh.png', 'images/verticales/image1_2vh.png', '1.png'];
@@ -339,4 +349,17 @@ function setNivel(unNivel){
         imagen_contorno = ['images/diagonales/image_1dhsl.png', 'images/diagonales/image1_1dhsl.png', '1.png'];
         imagen_contorno1 = ['images/diagonales/image_2dhsl.png', 'images/diagonales/image1_2dhsl.png', '1.png'];
     }
+}
+
+function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + aciertos, "Errores: " + errores);
+    document.getElementById("save-results").style.display = "none";
+    document.getElementById("aciertos").innerHTML = 0;
+    document.getElementById("errores").innerHTML = 0;
+	document.getElementById("comienzo").style.visibility = "visible"; 
+	for(var i = 0; i<radioBotones.length; i++){
+		radioBotones[i].disabled = false;
+	}
+    return;
 }
