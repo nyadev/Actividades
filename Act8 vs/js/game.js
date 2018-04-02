@@ -3,7 +3,7 @@ var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
 canvas.width = 512;
 canvas.height = 480;
-document.getElementById("loli").appendChild(canvas);
+document.getElementById("caballero").appendChild(canvas);
 
 // Poner el background
 var bgReady = false;
@@ -104,16 +104,14 @@ var render = function () {
 	if (monsterReady) {
 		ctx.drawImage(monsterImage, monster.x, monster.y);
 	}
-
 	// Score
 	ctx.fillStyle = "black";
 	ctx.font = "24px Helvetica";
 	ctx.textAlign = "left";
 	ctx.textBaseline = "top";
-
+	
 	ctx.fillText("Puntos: " + monstersCaught, 60, 64);
 	ctx.fillText("Errores: " + error, 200, 64);
-	
 };
 
 // Loop del juego
@@ -142,37 +140,44 @@ var acti = setTimeout(function(){mostrarResultados();},60000);
 
 }
 //iniciar();
-
-
-
 function mostrarResultados(){
-	document.getElementById("loli").style.visibility="hidden";
-	swal("Aciertos: " + monstersCaught+ "  Errores:" + error);
-	monstersCaught=0;
-	error=0;
+	document.getElementById("caballero").style.visibility = "hidden";
+	document.getElementById("save-results").style.display = "table";
 	document.getElementById("resultadosBox").style.visibility="visible";
 }
  
 function instrucciones(){
-
-swal({
-  title: "instrucciones",
-  text: " Tienes 60 segundos para la actividad , Use las Flechas 'Arriba' ↑, 'Abajo' ↓, 'Izquierda' ← y 'Derecha' → para mover al caballero, cada vez que alcanze al monstruo se reiniciara su posicion.",
- 
-  dangerMode: true,
-})
-.then(willDelete => {
-  if (willDelete) {
-    iniciar();
-  }
-});
-
+	swal(
+		{
+			title: "Instrucciones",
+			text: " Tienes 60 segundos para la actividad , use las Flechas 'Arriba' ↑, 'Abajo' ↓, 'Izquierda' ← y 'Derecha' → para mover al caballero, cada vez que alcanze al monstruo se reiniciara su posicion.",
+			dangerMode: true,
+		}
+	)
+	.then(willDelete => {
+			if (willDelete) {
+				iniciar();
+			}
+		}
+	);
  	//swal("Use las Flechas 'Arriba' ↑, 'Abajo' ↓, 'Izquierda' ← y 'Derecha' → para mover al caballero, cada vez que alcanze al monstruo se reiniciara su posicion.");
- }
+}
 
- function jugar(){
- 	document.getElementById("loli").style.visibility="visible";
- 	document.getElementById("resultadosBox").style.visibility="hidden";
+function jugar(){
+ 	document.getElementById("caballero").style.visibility = "visible";
+ 	document.getElementById("resultadosBox").style.visibility = "hidden";
+	document.getElementById("save-results").style.display = "none";
+	document.getElementById("jugarBtn").style.display = "none";
  	iniciar();
+}
+
+function saveResults(){
+    //aquí es donde despliega los resultados
+    swal("Aciertos: " + monstersCaught, "Errores: " + error);
+    document.getElementById("save-results").style.display = "none";
+	document.getElementById("jugarBtn").style.display = "table";
+    monstersCaught = 0;
+	error = 0;
+    return;
 }
  

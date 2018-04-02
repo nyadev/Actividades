@@ -1,59 +1,46 @@
 <!DOCTYPE>
 <html>
-<head>
-	<meta charset="Utf-8"/>
-	<title>Actividad 6</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</head>
-<body onload="Instrucciones();">
-
+	<head>
+		<meta charset="Utf-8"/>
+		<title>Actividad 6</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	</head>
+	<body onload="Instrucciones();">
 <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
                 <h2>Actividad 6</h2>
-
                 <!--PANEL PARA UN NIVEL 1 DE UNA ACTIVIDAD 3-->
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">Niveles: 1,2</div>
+                            <div class="panel-heading">Identificación de elementos locales y globales &nbsp; &nbsp; &nbsp; &nbsp; Nivel: <span id="nivel">1</span></div>
                             <div class="panel panel-body">
                                 <!--tabla de controles para el nivel -->
                                 <center> 
                                     <table class="table-condensed">
                                         <tr>
-                                            <td> <button class="btn btn-success" onclick="iniciarEjercicio();">Iniciar</button></td>
+                                            <td> <button class="btn btn-success" onclick="iniciarEjercicio();" id="comienzo">Iniciar</button></td>
                                             <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
                                             <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
                                         </tr>
                                     </table>    
                                     <!--Div que muestra el estimulo-->
-                                    <div id="opcionesBox" style="position: absolute; left: 320px; background:red; visibility:hidden;">
-                                        <canvas id="canvasOpcion" width="200" height="200" style=" border:0px solid #000000"></canvas>
-                                        
-                                    </div> 
-
-                                    <!--Div que muestra el estimulo-->
-                                    <div id="estimuloBox" style="position: relative; background: white; visibility:visible;">
+                                    <div id="estimuloBox" style="background: white; visibility:visible;">
                                         <br><br>
                                         <canvas id="canvasEstimulo" width="200" height="150" style=" border: 0px solid #000000"></canvas>
-
                                         <div style="position: relative; background:white;">
-
-                                        <button class="btn btn-success" id="btn1" name="btn1"  onclick="validarIguales(0)" style="visibility: hidden;"><i class="icon-star"> </i>Correcto</button>
-                                        <button class="btn btn-danger" id="btn2" name="btn2" onclick="validarIguales(1)" style="visibility: hidden;">Incorrecto</button>
+											<button class="btn btn-success" id="btn1" name="btn1"  onclick="validarIguales(0)" style="visibility: hidden;"><i class="icon-star"> </i>Correcto</button>
+											<button class="btn btn-danger" id="btn2" name="btn2" onclick="validarIguales(1)" style="visibility: hidden;">Incorrecto</button>
                                         </div>
                                     </div>
-
-                                    <div id="resultadosBox" style="position:relative; left:0px; top:0px;  background: white; visibility: hidden;">
+                                    <div id="resultadosBox" style="background: white; visibility: hidden;">
                                         <table class="table-condensed">             
                                             <tr>
-
                                                 <td>
-                                                    <button class="btn btn-default" onclick="pasarVariables('RegistraResultados', 'curp,aciertos,errores,nivel,actividad')">Guardar resultados</button>
-                                                    
+                                                    <input id="save-results" class="btn boton" type="button" value="Guardar resultados" onclick="saveResults()" style="display:none">                                      
                                                 </td>
                                             </tr>
                                         </table> 
@@ -79,16 +66,13 @@
                                         Nivel 2. Marca correcto cada que aparezca una S pequeña o grande.
                                     </label>
                                 </div>
-
                             </div>
-
                         </div>      
                     </div>
                 </div>
                 <!--TERMINA EL PANEL PARA NIVEL 1-->
-
-
-
-</body>
-<script type="text/javascript" src="scriptAct6.js"></script>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="scriptAct6.js"></script>
 </html>

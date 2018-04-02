@@ -1,60 +1,59 @@
 <!DOCTYPE>
 <html>
-<head>
-	<meta charset="Utf-8"/>
-	<title>Activiad 2</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</head>
-<body onload="Instrucciones();">
-
+	<head>
+		<meta charset="Utf-8"/>
+		<title>Actividad 2</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	</head>
+	<body onload="Instrucciones();">
 <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
                 <h2>Actividad 2</h2>
-
                 <!--PANEL PARA UN NIVEL 1 DE UNA ACTIVIDAD 3-->
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">Partes del cuerpo</div>
+                            <div class="panel-heading">Partes del cuerpo &nbsp; &nbsp; &nbsp; &nbsp; Nivel: <span id="nivel">1</span></div>
                             <div class="panel panel-body">
                                 <!--tabla de controles para el nivel -->
                                 <center> 
                                     <table class="table-condensed">
                                         <tr>
-                                            <td> <button id="comienzo" class="btn btn-success" onclick="iniciarEjercicio();">Iniciar</button></td>
-											
+                                            <td> 
+												<button id="comienzo" class="btn btn-success" onclick="iniciarEjercicio();">Iniciar</button>
+											</td>
 											<td>Parte del cuerpo &nbsp;<span class="badge"><div id="parte">...</div></span></td>
                                             <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
                                             <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
-											
-
                                         </tr>
-                                    </table> 
-																
-									<img src = "Ash.jpg" usemap="#Partes"/>
-									<map name = "Partes">
-										<area onclick="validarResultados('Mano')" alt="Ash"  shape=rect coords="27, 165, 71, 227"/>
-										<area onclick="validarResultados('Cabeza')" alt="Ash"  shape=rect coords="119, 69, 207, 111"/>
-										<area onclick="validarResultados('Pierna')" alt="Ash"  shape=rect coords="35, 355, 94, 512"/>
-										<area onclick="validarResultados('Pie')" alt="Ash"  shape=rect coords="7, 517, 94, 562"/>
-										<area onclick="validarResultados('Pie')" alt="Ash"  shape=rect coords="222, 537,, 309, 604"/>
-										<area onclick="validarResultados('Dedos')" alt="Ash"  shape=rect coords="307, 5, 362, 22"/>
-										<area onclick="validarResultados('Dedos')" alt="Ash"  shape=rect coords="328, 4, 339, 21"/>
-										<area onclick="validarResultados('Dedos')" alt="Ash"  shape=rect coords="346, 16, 355, 29"/>
-										<area onclick="validarResultados('Dedos')" alt="Ash"  shape=rect coords="295, 29, 317, 43"/>
-										<area onclick="validarResultados('Cuello')" alt="Ash"  shape=rect coords="129, 180, 155, 199"/>
-										<area onclick="validarResultados('Pecho')" alt="Ash"  shape=rect coords="87, 197, 176, 258"/>
-										<area onclick="validarResultados('Rodilla')" alt="Ash"  shape=rect coords="68, 443, 225, 471"/>
-										<area onclick="validarResultados('Orejas')" alt="Ash"  shape=rect coords="108, 126, 116, 150"/>
-										<area onclick="validarResultados('Orejas')" alt="Ash"  shape=rect coords="192, 146, 199, 160"/>
-										<area onclick="validarResultados('Ojos')" alt="Ash"  shape=rect coords="128, 113, 144, 136"/>
-										<area onclick="validarResultados('Ojos')" alt="Ash"  shape=rect coords="172, 124, 188, 146"/>
-										<area onclick="validarResultados('Nariz')" alt="Ash"  shape=rect coords="155, 132, 166, 145"/>
-									</map>
-								
-                                     
+                                    </table> 	
+									<div id="imagen" style="display:none;">
+										<img src = "Ash.jpg" usemap="#Partes"/>
+										<map name = "Partes">
+											<area onclick="validarResultados('Mano')" alt="Ash"  shape=rect coords="27, 165, 71, 227"/>
+											<area onclick="validarResultados('Cabeza')" alt="Ash"  shape=rect coords="119, 69, 207, 111"/>
+											<area onclick="validarResultados('Pierna')" alt="Ash"  shape=rect coords="35, 355, 94, 512"/>
+											<area onclick="validarResultados('Pie')" alt="Ash"  shape=rect coords="7, 517, 94, 562"/>
+											<area onclick="validarResultados('Pie')" alt="Ash"  shape=rect coords="222, 537,, 309, 604"/>
+											<area onclick="validarResultados('Dedos')" alt="Ash"  shape=rect coords="307, 5, 362, 22"/>
+											<area onclick="validarResultados('Dedos')" alt="Ash"  shape=rect coords="328, 4, 339, 21"/>
+											<area onclick="validarResultados('Dedos')" alt="Ash"  shape=rect coords="346, 16, 355, 29"/>
+											<area onclick="validarResultados('Dedos')" alt="Ash"  shape=rect coords="295, 29, 317, 43"/>
+											<area onclick="validarResultados('Cuello')" alt="Ash"  shape=rect coords="129, 180, 155, 199"/>
+											<area onclick="validarResultados('Pecho')" alt="Ash"  shape=rect coords="87, 197, 176, 258"/>
+											<area onclick="validarResultados('Rodilla')" alt="Ash"  shape=rect coords="68, 443, 225, 471"/>
+											<area onclick="validarResultados('Orejas')" alt="Ash"  shape=rect coords="108, 126, 116, 150"/>
+											<area onclick="validarResultados('Orejas')" alt="Ash"  shape=rect coords="192, 146, 199, 160"/>
+											<area onclick="validarResultados('Ojos')" alt="Ash"  shape=rect coords="128, 113, 144, 136"/>
+											<area onclick="validarResultados('Ojos')" alt="Ash"  shape=rect coords="172, 124, 188, 146"/>
+											<area onclick="validarResultados('Nariz')" alt="Ash"  shape=rect coords="155, 132, 166, 145"/>
+										</map>
+									</div>
+									<div id="resultadosBox" style="background: white; visibility: hidden;">
+										<input id="save-results" class="btn boton" type="button" value="Guardar resultados" onclick="saveResults()" style="display:none"> 
+									</div>                                    
                                 </center>
                             </div>
                         </div>
@@ -93,15 +92,12 @@
                                         Nivel 5: La tarea tiene 25 preguntas
                                     </label
                                 </div>
-
                             </div>
-
                         </div>      
                     </div>
                 </div>
-
-
-
-</body>
-<script type="text/javascript" src="scritpAct2.js"></script>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="scriptAct2.js"></script>
 </html>

@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<script type="text/javascript" src="scriptAct3vs.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+			   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<meta charset="Utf-8"/>
+		<title>Actividad 3</title>
+	</head>
+<body onload="Instrucciones();">
+<!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+				<h2>Actividad 3</h2>
+                <!--PANEL PARA UN NIVEL 1 DE UNA ACTIVIDAD 3-->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Esquema corporal y relaciones espaciales </div>
+                            <div class="panel panel-body">
+                                <!--tabla de controles para el nivel -->
+                                <center>
+                                  <div id="opcionesBox" style="position: absolute; left: 320px; background:white; visibility:hidden;">
+                                    <canvas id="canvasOpcion" width="200" height="200" style=" border: 0px solid #000000"></canvas>
+                                        <br><button class="btn btn-default" name="btn1" onClick="validarIguales()">Igual</button>
+                                        <button class="btn btn-default" name="btn2" onClick="validarDiferentes()">Diferente</button>
+                                  </div> 
+
+                                    <div id="estimuloBox" style="position: relative; background: white; visibility:visible;">
+
+                                    <h2 id="encabezado"><center>Parte del cuerpo</center></h2>
+                                    <img src="cuerpoN.jpg" width="350" height="301" usemap="#Map" border="0">
+                                        <map name="Map">
+                                        <area shape="circle" coords="240,73,10" href="#" onclick="mensaje2()">
+                                        <area shape="circle" coords="283,73,10" href="#" onclick="mensaje1()">
+                                        <area shape="circle" coords="53,68,10" href="#" onclick="mensaje2()">
+                                        <area shape="circle" coords="100,68,10" href="#" onclick="mensaje1()">
+                                        <area shape="rect" coords="210,20,320,65" href="#" onclick="mensaje5()">
+                                        <area shape="rect" coords="20,15,125,55" href="#" onclick="mensaje5()">
+                                        <!--Manos-->
+                                        <area shape="circle" coords="18,187,15" href="#" onclick="mensaje4()">
+                                        <area shape="circle" coords="205,187,15" href="#" onclick="mensaje4()">
+                                        <area shape="circle" coords="130,187,15" href="#" onclick="mensaje3()">
+                                        <area shape="circle" coords="325,187,15" href="#" onclick="mensaje3()">
+                                        <!--Piernas-->
+                                        <area shape="rect" coords="80,220,105,265" href="#" onclick="mensaje6()">
+                                        <area shape="rect" coords="270,230,290,265" href="#" onclick="mensaje6()">
+                                        <area shape="rect" coords="50,220,75,265" href="#" onclick="mensaje7()">
+                                        <area shape="rect" coords="240,230,260,265" href="#" onclick="mensaje7()">
+
+                                        <!--Brazos-->
+                                        <area shape="rect" coords="15,140,35,175" href="#" onclick="mensaje15()">
+                                        <area shape="rect" coords="113,140,133,175" href="#" onclick="mensaje14()">
+                                        <area shape="rect" coords="205,130,227,175" href="#" onclick="mensaje15()">
+                                        <area shape="rect" coords="300,130,322,175" href="#" onclick="mensaje14()">
+
+                                        <area shape="circle" coords="45,280,20" href="#" onclick="mensaje8()">
+                                        <area shape="circle" coords="240,280,20" href="#" onclick="mensaje8()">
+                                        <area shape="circle" coords="105,280,20" href="#" onclick="mensaje9()">
+                                        <area shape="circle" coords="295,280,20" href="#" onclick="mensaje9()">
+                                        <!--Rodillas-->
+                                        <area shape="circle" coords="295,250,10" href="#" onclick="mensaje10()">
+                                        <area shape="circle" coords="235,250,10" href="#" onclick="mensaje10()">
+                                        <area shape="circle" coords="110,233,10" href="#" onclick="mensaje10()">
+                                        <area shape="circle" coords="45,233,10" href="#" onclick="mensaje10()">
+                                        <!--Abdomen-->
+                                         <area shape="circle" coords="75,165,23" href="#" onclick="mensaje11()">
+                                         <area shape="circle" coords="265,165,23" href="#" onclick="mensaje11()">
+                                        <!--Cuello-->
+                                         <area shape="circle" coords="75,110,10" href="#" onclick="mensaje16()">
+                                         <area shape="circle" coords="265,115,10" href="#" onclick="mensaje16()">
+                                        <!--Boca-->
+                                         <area shape="circle" coords="75,93,5" href="#" onclick="mensaje12()">
+                                         <area shape="circle" coords="263,98,5" href="#" onclick="mensaje12()">
+                                        <!--Nariz-->
+                                         <area shape="circle" coords="75,83,5" href="#" onclick="mensaje13()">
+                                         <area shape="circle" coords="263,88,5" href="#" onclick="mensaje13()">
+                                      </map>
+									</div>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <!--PANEL PARA LAS INSTRUCCIONES-->
+                   
+</body>
+</html>

@@ -1,9 +1,10 @@
-<html><head>
+<html>
+	<head>
         <meta charset="Utf-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <title>Actividad 9</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<title>Actividad 9</title>
     </head>
     <body onload="instrucciones();">
         <div>
@@ -12,43 +13,40 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">Fases: 1 y 2</div>
-                            <div class="panel panel-body">
-                                
+                            <div class="panel-heading">Relaciones espaciales &nbsp; &nbsp; &nbsp; &nbsp; Fase: <span id="fase">1</span></div>
+                            <div class="panel panel-body"> 
                                 <center> 
                                     <table class="table-condensed">
-                                        <tbody><tr>
-                                            <td> <button class="btn btn-success" onclick="" id="Iniciar">Iniciar</button></td>
-
-                                            <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
-                                            <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
-
-                                        </tr>
-                                    </tbody></table>
-
+                                        <tbody>
+											<tr>
+												<td> <button class="btn btn-success" onclick="" id="Iniciar">Iniciar</button></td>
+												<td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
+												<td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
+											</tr>
+										</tbody>
+									</table>
                                     <img src="imgan.png" width="800px" height="400px" id="img">
-                                    <br><br><button class="btn bt
-                                    n-default" name="btn1" onclick="" id="luna" style="visibility:hidden;">Luna</button>
+                                    <br><br>
+									<button class="btn btn-default" name="btn1" onclick="" id="luna" style="visibility:hidden;">Luna</button>
                                     <button class="btn btn-default" name="btn2" onclick="" id="sol" style="visibility:hidden;">Sol</button>
-                                    <button class="btn btn-default" onclick="" style="visibility:hidden;" id="Guardar">Guardar resultados</button>
-
+                                    <input id="save-results" class="btn boton" type="button" value="Guardar resultados" onclick="saveResults()" style="display:none"> 
                                 </center>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Niveles</div>
+                            <div class="panel-heading">Fases</div>
                             <div class="panel panel-body">
-                             <!--   Aparecerán tres imagenes (Cara, Sol, Luna), el paciente deberá decir cual de las imagenes está más cerca a la cara. El estímulo cambiará hasta que el paciente haya dado una respuesta. En la fase 1 habrá circulos entre la cara y las otras imagenes para que el paciente pueda contarlos y determinar cuál esta más cercano o lejano. En la fase 2 desapareceran los circulos entre las imagenes. La actividad acabará cuando el paciente obtenga 10 aciertos.
-                                <div class="radio">-->
+                             <!--   Aparecerán tres imagenes (Cara, Sol, Luna), el paciente deberá decir cual de las imagenes está más cerca a la cara. El estímulo cambiará hasta que el paciente haya dado una respuesta. En la fase 1 habrá circulos entre la cara y las otras imagenes para que el paciente pueda contarlos y determinar cuál esta más cercano o lejano. En la fase 2 desapareceran los circulos entre las imagenes. La actividad acabará cuando el paciente obtenga 10 aciertos.-->
+                                <div class="radio">
                                     <label>
                                         <input type="radio" id="rad1" name="fases" onclick="setFase(1);" value="1" checked="">
-                                        Fase 1
-                                    </label><br><br>
+											Fase 1: Aparecerán círculos para que el niño pueda contarlos y determinar cuál esta más cercano o lejano. 
+                                    </label><br>
                                     <label>
                                         <input type="radio" id="rad2" name="fases" onclick="setFase(2);" value="2">
-                                        Fase 2
+											Fase 2: No hay presencia de  círculos para que el niño pueda contarlos y determinar cuál está más cercano o lejano. 
                                     </label>
                                 </div>
                             </div>
@@ -57,9 +55,7 @@
                 </div>
             </div>
         </div>
-    
-    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="js.js"></script>
-     <script type="text/javascript" src="Act9.js"></script>
-    
-</body></html>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="Act9.js"></script>    
+	</body>
+</html>
