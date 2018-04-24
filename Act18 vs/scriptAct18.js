@@ -141,6 +141,9 @@ function iniciarSecuencia(){
 		definirFigura(respuesta, figuraOpcion);
 		for(i = 0; i<listaCanvas.length; i++){
 			var idFigura = colorOPosicionAleatoria(tipoFigura);
+			if(i === 9 && totalFigurasCorrectas === 0){
+				idFigura === respuesta;
+			}
 			definirFigura(idFigura, listaFiguras[i]);
 			arregloTiposDeFigurasCanvas.push(tipoFigura[idFigura]);
 			if(idFigura === respuesta){
