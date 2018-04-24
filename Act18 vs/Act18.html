@@ -1,0 +1,92 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="Utf-8" />
+		<title>Actividad 18</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"crossorigin="anonymous">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	</head>
+	<body onload="Instrucciones();">
+	<!-- Page Content -->
+	<div id="page-wrapper">
+		<div class="container-fluid">
+			<h2>Actividad 18</h2>
+			<!--PANEL PARA UN NIVEL 1 DE UNA ACTIVIDAD 18-->
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="panel panel-primary">
+						<div class="panel-heading">Constancia de forma &nbsp; &nbsp; &nbsp; &nbsp; Fase: <span id="fase">1</span></div>
+						<div class="panel panel-body">
+							<!--tabla de controles para el nivel -->
+							<center>
+								<table class="table-condensed">
+									<tr>
+										<td> <button id="comienzo" class="btn btn-success" onclick="iniciarEjercicio();">Iniciar</button></td>
+										<!--<td>Tiempo &nbsp;<span class="badge"><div id="minutos">0</div></span><span class="badge">:</span><span class="badge"><div id="segundos">00</div></span></td>-->
+										<td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
+										<td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
+									</tr>
+								</table>
+								<div id="estimuloBox" style="background: white; display:none;">
+									<canvas id="canvasOpcion" width="160" height="160" style=" float: left; margin:  10px 10px 10px 10px; border: 2px solid red"></canvas>
+									<canvas id="canvasEstimulo1" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 0)"></canvas>
+									<canvas id="canvasEstimulo2" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 1)"></canvas>
+									<canvas id="canvasEstimulo3" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 2)"></canvas>
+									<canvas id="canvasEstimulo4" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 3)"></canvas>
+									<canvas id="canvasEstimulo5" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 4)"></canvas>
+									<canvas id="canvasEstimulo6" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 5)"></canvas>
+									<canvas id="canvasEstimulo7" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 6)"></canvas>
+									<canvas id="canvasEstimulo8" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 7)"></canvas>
+									<canvas id="canvasEstimulo9" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 8)"></canvas>
+									<canvas id="canvasEstimulo10" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 9)"></canvas>
+									<canvas id="canvasEstimulo11" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 10)"></canvas>
+									<canvas id="canvasEstimulo12" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 11)"></canvas>
+									<canvas id="canvasEstimulo13" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 12)"></canvas>
+									<canvas id="canvasEstimulo14" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 13)"></canvas>
+									<canvas id="canvasEstimulo15" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 14)"></canvas>
+									<canvas id="canvasEstimulo16" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 15)"></canvas>
+									<canvas id="canvasEstimulo17" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 16)"></canvas>
+									<canvas id="canvasEstimulo18" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 17)"></canvas>
+									<canvas id="canvasEstimulo19" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 18)"></canvas>
+									<canvas id="canvasEstimulo20" width="160" height="160" style=" border: 0px solid #000000" onclick="validarRespuesta(event, 19)"></canvas>
+								</div>
+								<div id="resultadosBox" style="background: white;">
+									<table class="table-condensed">
+										<tr>
+											<td>
+												<input id="save-results" class="btn boton" type="button" value="Guardar resultados" onclick="saveResults()" style="display:none">
+											</td>
+										</tr>
+									</table>
+								</div>
+							</center>
+						</div>
+					</div>
+				</div>
+				<!--PANEL PARA LAS INSTRUCCIONES-->
+				<div class="col-lg-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">Fases</div>
+						<div class="panel panel-body">
+							<!--Aquí el texto de las instrucciones-->
+							<br>
+							<div class="radio">
+								<label>
+                                    <input type="radio" name="niveles" onclick="setFase(1);" value="1" checked/>
+                                       Fase 1: Hay figuras esparcidas por la pantalla.
+                                </label><br>
+								<!--<label>
+                                    <input type="radio" name="niveles" onclick="setFase(2);" value="2"/>
+                                        Fase 2: Las figuras geométricas aparecen dentro de un dibujo.
+                                </label>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--TERMINA EL PANEL PARA NIVEL 1-->
+	</body>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="scriptAct18.js"></script>
+</html>
+
