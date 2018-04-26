@@ -6,7 +6,7 @@ var nivel = 1;
 var actividad = 8;//numero de la actividad
 var verificarX = 0;
 //Variables de la actividad
-var lista = new Array('A','B','C','D','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','V','W','X','Y','Z');
+var lista = new Array('A','B','C','D','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','V','W','X','Y','Z','X','X','X','X','X');
 var idElemento = 0;
 var contador = 0;
 var cantidadLetras = 12;
@@ -37,7 +37,7 @@ function validarEvento(evento){
 	//Codigo 32 = barraEspaciadora
     //idElemento 21 = X
 	if(codigo === 32 && cantidadEspacios === 0){
-		if(idElemento === 21){
+		if(idElemento === 21 || idElemento === 24 || idElemento === 25 || idElemento === 26 || idElemento === 27|| idElemento === 28){
 			swal('Error');
 			errores++;    
 			document.getElementById("errores").innerHTML = errores;	

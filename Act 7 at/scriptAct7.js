@@ -6,7 +6,7 @@ var nivel = 1;
 var actividad = 7;//numero de la actividad
 
 //Variables de la actividad
-var lista = new Array('A','B','C','D','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','V','W','X','Y','Z', 'X', 'A', 'X', 'A', 'X', 'A', 'X', 'A');
+var lista = new Array('A','B','C','D','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','V','W','X','Y','Z', 'X', 'A', 'X', 'A', 'X', 'A', 'X', 'A', 'X', 'A', 'X', 'A', 'X', 'A', 'X', 'A', 'X', 'A', 'X', 'A');
 var idElemento = 0;
 var contador = 0;
 var cantidadEspacios = 0; //Cantidad de veces que se puede dar espacio
