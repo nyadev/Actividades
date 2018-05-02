@@ -1,0 +1,69 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="Utf-8"/>
+		<title>Actividad 7</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	</head>
+	<body onload="Instrucciones(); inicializarImagen()">
+<!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <h2>Actividad 7</h2>
+                <!--PANEL PARA UN NIVEL DE UNA ACTIVIDAD-->
+                <div class="row">
+                    <div class="col-lg-10">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Coordinación Visiomotriz</div>
+                            <div class="panel panel-body">
+                                <!--tabla de controles para el nivel -->
+                                <center> 
+                                    <table class="table-condensed">
+                                        <tr>
+                                            <td> <button id="comienzo" class="btn btn-success" onclick="iniciarEjercicio();">Iniciar</button></td>
+									
+                                            <td>Aciertos &nbsp;<span class="badge"><div id="aciertos">0</div></span></td>
+                                            <td>Errores &nbsp;<span class="badge"><div id="errores">0</div></span></td>
+                                        </tr>
+                                    </table>
+									<div id="estimuloBox" style="background: white;">
+										<canvas id="micanvas" onmousedown ="validarCamino(event)" width="300" height="200"></canvas>
+									</div>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <!--PANEL PARA LAS INSTRUCCIONES-->
+                    <div class="col-lg-2">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Niveles</div>
+                            <div class="panel panel-body">
+                                <!--Aquí el texto de las instrucciones
+                                Se muestra un texto con el nombre de una parte del cuerpo. El paciente debera.--> 
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(1);" value="1" checked/>
+                                        Nivel 1: 
+                                    </label>
+									<br>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(2);" value="2"/>
+                                        Nivel 2: 
+                                    </label>
+									<br>
+                                    <label>
+                                        <input type="radio" name="niveles" onclick="setNivel(3);" value="3"/>
+                                        Nivel 3: 
+                                    </label>
+                                </div>
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+			<div>
+		<div>
+	</body>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="scritpAct7.js"></script>
+</html>
