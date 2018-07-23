@@ -9,7 +9,7 @@ var canvas1 = document.getElementById('canvasEstimulo');
 var canvas2 = document.getElementById('canvasOpcion');
 var figura1 = canvas1.getContext('2d');
 var figura2 = canvas2.getContext('2d');
-var color = new Array('red','blue','green','yellow');
+var color = new Array('red','blue','yellow');
 var figura = new Array('cuadro','circulo','triangulo'); 
 var idColor1;
 var idColor2;
@@ -18,8 +18,8 @@ var idFig2;
 var inicio = document.getElementById("comienzo");
 var radioBotones = document.getElementsByName("niveles");
 //Tiempos
-var tiempoEstimulo=5000;
-var tiempoTotal=60000;
+var tiempoEstimulo = 5000;
+var tiempoTotal = 60000;
 var retardoOpciones;
 var retardo;
 
@@ -165,7 +165,7 @@ function iniciarSecuencia(){
 function instrucciones(){
     swal(
    "Instrucciones",
-    "Aparecerá un estímulo en el centro de un color determinado (Rojo, Azul o Verde) y forma determinado (Cuadrado, Círculo, Triángulo), en la siguiente pantalla aparecerá una nueva figura de igual o diferente color y/o forma, el paciente deberá dar click a los botones dependiendo si es el mismo o diferente. El estímulo cambiará hasta que el paciente haya dado una respuesta.",
+    "Aparecerá un estímulo en el centro de un color determinado (Rojo, Azul o Amarillo) y forma determinado (Cuadrado, Circulo, Triángulo), en la siguiente pantalla aparecerá una nueva figura de igual o diferente color y/o forma, el paciente deberá dar click a los botones dependiendo si posee el mismo color y forma o si es diferente. El estímulo cambiará hasta que el paciente haya dado una respuesta.",
    );
 }
 
