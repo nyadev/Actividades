@@ -6,10 +6,10 @@ var nivel = 1;
 var actividad = 8;//numero de la actividad
 var verificarX = 0;
 //Variables de la actividad
-var lista = new Array('A','B','C','D','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','V','W','X','Y','Z','X','X','X','X','X');
+var lista = new Array('A','F','M','O','Y','W','X');
 var idElemento = 0;
 var contador = 0;
-var cantidadLetras = 12;
+var cantidadLetras = 12
 var cantidadEspacios = 0;
 var msg = '';
 var listaRespuestas = [];
@@ -35,10 +35,10 @@ function validarEvento(evento){
 	var codigo = evento.keyCode;
 	console.log("codigo de la tecla:"+codigo);
 	//Codigo 32 = barraEspaciadora
-    //idElemento 21 = X
+    //idElemento 6 = X
 	if(codigo === 32 && cantidadEspacios === 0){
-		if(idElemento === 21 || idElemento === 24 || idElemento === 25 || idElemento === 26 || idElemento === 27|| idElemento === 28){
-			swal('Error');
+		if(idElemento === 6){
+			swal('Error, no se debe pulsar la barra espaciadora cuando aparezca “X”');
 			errores++;    
 			document.getElementById("errores").innerHTML = errores;	
 			cantidadEspacios = 1;		
@@ -75,12 +75,12 @@ function iniciarEjercicio(){
 function mostrarlista(){
 	if(listaRespuestas.length === 6 && verificarX === 0){
 		for(i = 0; i < 5; i++){
-			if(listaRespuestas[i] === 21){
+			if(listaRespuestas[i] === 6){
 				verificarX++;
 			}
 		}
 		if(verificarX === 0){
-			idElemento = 21;
+			idElemento = 6;
 			verificarX++;
 		}else{
 			idElemento = numeroAleatoreo();
