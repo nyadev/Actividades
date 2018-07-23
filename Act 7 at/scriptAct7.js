@@ -6,7 +6,7 @@ var nivel = 1;
 var actividad = 7;//numero de la actividad
 
 //Variables de la actividad
-var lista = new Array('A','B','C','D','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','V','W','X','Y','Z', 'X', 'A', 'X', 'A', 'X', 'A', 'X', 'A', 'X', 'A', 'X', 'A', 'X', 'A', 'X', 'A', 'X', 'A', 'X', 'A');
+var lista = new Array('A','B','L','M','O','S','X','X','A','X','A');
 var idElemento = 0;
 var contador = 0;
 var cantidadEspacios = 0; //Cantidad de veces que se puede dar espacio
@@ -27,7 +27,7 @@ function numeroAleatoreo(){
 
 function Instrucciones(){
    swal("Instrucciones",
-    "Aparecerán letras aleatoriamente, el paciente deberá apretar la barra espaciadora cada vez que aparezca la letra “X”, siempre y cuando antes aparezca una “A”.");
+    "Aparecerán letras aleatoriamente, el paciente deberá apretar la barra espaciadora cada vez que aparezca la letra “X”, siempre y cuando antes aparezca una “A” previamente a la “X”.");
 }	
 
 function mostrarlista(){
@@ -60,7 +60,7 @@ function validarEvento(evento){
         }
     else if(codigo === 32 && cantidadEspacios === 0){
 		cantidadEspacios = 1;
-		swal('Error');
+		swal('Error, se debe dar espacio cuando hay una “X” después de una “A”');
         errores++;  
         document.getElementById("errores").innerHTML = errores;   
     }       
